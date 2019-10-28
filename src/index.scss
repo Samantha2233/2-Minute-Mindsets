@@ -1,0 +1,78 @@
+:root {
+  font-size: 100%; // 1rem = 16px
+  --purple: #181860;
+	--lighterGrey: #ebebeb;
+	--blue: #52a9dc;
+	--orange: #f78534;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+
+//  U N I V E R S A L   F O N T   S T Y L E S 
+@font-face {
+	font-family: Metropolis;
+	src: url(/fonts/Metropolis-ExtraBold.otf) format('otf');
+}
+
+h1 {
+	font-family: Metropolis, sans-serif;
+	font-size: 65px;
+}
+
+h2 {
+	font-family: Metropolis, sans-serif;
+	font-size: 60px;
+}
+
+h3 {
+	font-family: Metropolis, sans-serif;
+	font-size: 25px;
+}
+
+p {
+	font-family: Metropolis, sans-serif;
+}
+
+li {
+  font-family: Metropolis, sans-serif;
+}
+
+
+
+
+//  U N I V E R S A L   B U T T O N   S T Y L E S 
+
+button {
+	background-color: var(--blue);
+	border: 1px solid var(--purple);
+	border-radius: 20px;
+	padding: 10px 20px;
+	font-family: inherit;
+	box-sizing: border-box;
+	transition: background-color 0.3s ease;
+}
+
+
+
+//  U N I V E R S A L   F O R M   S T Y L E S 
+
+label {
+	font-family: Metropolis, sans-serif;
+	font-size: 1.4em;
+	width: 200px;
+	color: white;
+}
+
+input {
+	border: 1px solid var(--purple);
+	border-radius: 8px;
+	height: 1.5em;
+	}
+
+a {
+	text-decoration: none;
+}

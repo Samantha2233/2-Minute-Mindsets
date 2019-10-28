@@ -1,0 +1,55 @@
+.nav {
+    background-color: aliceblue;
+	width: 100%;
+	height: 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .logo-and-links {
+        display: flex;
+        align-items: center;
+    }
+
+    .logo {
+        width: 30px;
+        height: 100%;
+        padding: 1rem;
+        margin-bottom: 6px;
+    }
+
+    ul {
+        display: flex;
+        list-style: none;
+        padding: 0;
+        margin: -8px;
+        
+        li {
+            padding: 0 15px;
+	        color: var(--purple);
+            visibility: visible;
+            cursor: pointer;
+            
+            &:hover {
+                color: var(--blue);
+            }
+        }
+    }
+
+    #hamburger {
+        z-index: 5;
+        width: 27px;
+        margin-right: 1rem;
+        display: none;
+    }
+    
+    #exit {
+        z-index: 5;
+        width: 23px;
+        margin-right: 1rem;
+        display: none;
+    }
+}
+
+
+
