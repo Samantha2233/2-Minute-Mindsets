@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Nav from '../../components/Nav/Nav';
 import Landing from '../../components/Landing/Landing';
+import About from '../../components/About/About';
 import './App.css';
 
 class App extends Component {
@@ -9,6 +10,7 @@ class App extends Component {
       <div>
         <Nav />
         <Landing />
+        <About />
       </div>
     );
   }
