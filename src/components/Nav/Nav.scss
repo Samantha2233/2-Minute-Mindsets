@@ -5,6 +5,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    z-index: 10;
+    position: fixed;
 
     .logo-and-links {
         display: flex;
@@ -12,10 +14,11 @@
     }
 
     .logo {
-        width: 30px;
+        width: 40px;
         height: 100%;
-        padding: 1rem;
+        padding-left: 10px;
         margin-bottom: 6px;
+        margin-top: 4px;
     }
 
     ul {
@@ -36,29 +39,73 @@
                 font-weight: 500;
             }
         }
+        
+        a {
+            color: var(--purple);
+            text-decoration: none;
+        }
     }
 
+    .dropdown-menu {
+        border: none;
+        background-color: aliceblue;
+    }
+    
+    .dropdown div {
+        left: -23px !important;
+    }
+
+    button:active {
+        background-color: aliceblue;
+    }
+
+    #resources, #sign-up-button {
+        background-color: transparent;
+        color: var(--purple);
+        border: none;
+        margin: 0 0 2px 0;
+        padding: 0;
+        &:hover {
+            color: var(--blue);
+            font-weight: 500;
+        }
+        &:focus {
+            border: none;
+            box-shadow: none;
+        }
+    }
+
+    #sign-up-button {
+        margin-right: 1rem;
+    }
+    
     #hamburger {
         z-index: 5;
         width: 27px;
         margin-right: 1rem;
         display: none;
     }
+
+    // Display Hamburger Menu when under 750px
+    @media only screen and (max-width: 650px) {
+        ul, #sign-up-button {
+            display: none;
+        }
+        #hamburger {
+            display: block;
+        }
+    }
     
     #exit {
         z-index: 5;
         width: 23px;
         margin-right: 1rem;
-        display: none;
     }
 
     #user-icon {
         font-size: 1.3rem;
         padding: 1rem;
-        display: none;
     }
-
-
 }
 
 

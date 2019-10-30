@@ -1,0 +1,28 @@
+#mobile-nav {
+    background: white;
+    width: 100vw;
+    height: 100vh;
+    z-index: 9;
+    // display: none;
+    position: fixed;
+    margin-top: 3em;
+
+    ul {
+        padding-top: 50px;
+    }
+
+    li {
+        list-style: none;
+        // text-align: center;
+        padding: 1rem;
+        font-size: 1.3rem;
+        width: 175px;
+        margin: 0 auto;
+    }
+    
+    a {
+        color: var(--purple);
+        text-decoration: none;
+
+    }
+}
