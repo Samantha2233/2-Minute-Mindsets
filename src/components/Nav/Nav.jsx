@@ -44,12 +44,20 @@ class Nav extends Component {
                     {this.props.user ?
                         <i id='user-icon' class='far fa-user'></i>
                         :
-                        <Button
-                            onClick={this.props.toggleModal}
-                            modalIsOpen={this.props.modalIsOpen}
-                            id="sign-up-button"
-                        >Sign Up
+                        <div>
+                            <Button
+                                onClick={this.props.toggleSignUpModal}
+                                signUpModalIsOpen={this.props.signUpModalIsOpen}
+                                id="sign-up-button"
+                            >Sign Up
                         </Button>
+                            <Button
+                                onClick={this.props.toggleLogInModal}
+                                logInModalIsOpen={this.props.logInModalIsOpen}
+                                id="log-in-button"
+                            >Log In
+                        </Button>
+                        </div>
                     }
                 </div>
             </div>

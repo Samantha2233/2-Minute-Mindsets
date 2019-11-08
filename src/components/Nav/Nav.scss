@@ -59,7 +59,7 @@
         background-color: aliceblue;
     }
 
-    #resources, #sign-up-button {
+    #resources, #sign-up-button, #log-in-button {
         background-color: transparent;
         color: var(--purple);
         border: none;
@@ -75,7 +75,7 @@
         }
     }
 
-    #sign-up-button {
+    #sign-up-button, #log-in-button {
         margin-right: 1rem;
     }
     

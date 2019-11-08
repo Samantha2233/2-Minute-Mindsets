@@ -80,3 +80,19 @@ input {
 a {
 	text-decoration: none;
 }
+
+#cancel {
+    background-color: transparent;
+    color: var(--purple);
+    border: none;
+    margin: 0 0 2px 0;
+    padding: 0;
+    &:hover {
+        color: var(--blue);
+        font-weight: 500;
+    }
+    &:focus {
+        border: none;
+        box-shadow: none;
+    }
+}

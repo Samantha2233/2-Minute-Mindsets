@@ -1,11 +1,13 @@
+//    I M P O R T S
 import React, { Component } from 'react';
 
 // import videoService from '../../utils/videoService';
-// import userService from '../../utils/userService';
+import userService from '../../utils/userService';
 
 import Nav from '../../components/Nav/Nav';
 import MobileNav from '../../components/MobileNav/MobileNav';
 import SignUp from '../../components/SignUp/SignUp';
+import LogIn from '../../components/LogIn/LogIn';
 import Landing from '../../components/Landing/Landing';
 import About from '../../components/About/About';
 import Videos from '../../components/Videos/Videos';
@@ -18,23 +20,23 @@ class App extends Component {
     super();
     this.state = {
       ...this.getInitialState(),
+      user: userService.getUser(),
     }
   }
 
   getInitialState() {
     return {
-      // user: userService.getUser(),
-      user: false,
       videoList: [],
       showVideoPlayer: false,
       videoId: '',
-      modalIsOpen: false,
+      signUpModalIsOpen: false,
+      logInModalIsOpen: false,
       dropdownOpen: false,
       mobileNavIsOpen: false
     }
   }
 
-  //      N A V 
+  //      N A V   T O G G L E R  F U N C T I O N S
   toggleNavItem = () => {
     this.setState({
       dropdownOpen: !this.state.dropdownOpen
@@ -48,12 +50,31 @@ class App extends Component {
   }
 
 
-  //      S I G N   U P   M O D A L
-  toggleModal = () => {
+  //      A U T H E N T C A T I O N   T O G G L E R   F U N C T I O N S
+  toggleSignUpModal = () => {
     this.setState({
-      modalIsOpen: !this.state.modalIsOpen
+      signUpModalIsOpen: !this.state.signUpModalIsOpen
     });
   }
+
+  toggleLogInModal = () => {
+    this.setState({
+      logInModalIsOpen: !this.state.logInModalIsOpen
+    });
+  }
+
+
+  //     A U T H E N T C A T I O N   H A N D L E R   F U N C T I O N S
+  handleLogOut = () => {
+    userService.logout();
+    this.setState({ user: null });
+  }
+
+  handleSignUpOrLogIn = () => {
+    console.log('handleSignUpOrLogin called');
+    this.setState({ user: userService.getUser() });
+  }
+
 
 
   //      V I D E O S
@@ -76,8 +97,10 @@ class App extends Component {
     return (
       <div>
         <Nav
-          modalIsOpen={this.state.modalIsOpen}
-          toggleModal={this.toggleModal}
+          signUpModalIsOpen={this.state.signUpModalIsOpen}
+          logInModalIsOpen={this.state.logInModalIsOpen}
+          toggleLogInModal={this.toggleLogInModal}
+          toggleSignUpModal={this.toggleSignUpModal}
           dropdownOpen={this.state.dropdownOpen}
           toggleNavItem={this.toggleNavItem}
           user={this.state.user}
@@ -89,8 +112,15 @@ class App extends Component {
           mobileNavIsOpen={this.state.mobileNavIsOpen}
         />
         <SignUp
-          toggleModal={this.toggleModal}
-          modalIsOpen={this.state.modalIsOpen}
+          toggleSignUpModal={this.toggleSignUpModal}
+          signUpModalIsOpen={this.state.signUpModalIsOpen}
+          handleSignUpOrLogIn={this.handleSignUpOrLogIn}
+        // history={history}
+        />
+        <LogIn
+          toggleLogInModal={this.toggleLogInModal}
+          logInModalIsOpen={this.state.logInModalIsOpen}
+          handleSignUpOrLogIn={this.handleSignUpOrLogIn}
         />
         <Landing />
         <About />
