@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import userService from '../../utils/userService';
 import { Container, Button, Modal, ModalHeader, ModalBody } from 'reactstrap';
+import { Form, Input } from 'reactstrap';
 import './SignUp.scss';
 
 class SignUp extends Component {
@@ -51,10 +52,10 @@ class SignUp extends Component {
                             Sign Up
                         </ModalHeader>
                         <ModalBody>
-                            <form onSubmit={this.handleSubmit}>
+                            <Form className='sign-up-form' onSubmit={this.handleSubmit}>
                                 <div>
                                     <div>
-                                        <input
+                                        <Input
                                             type='text'
                                             placeholder='Name'
                                             value={this.state.name}
@@ -65,7 +66,7 @@ class SignUp extends Component {
                                 </div>
                                 <div>
                                     <div>
-                                        <input
+                                        <Input
                                             type='email'
                                             placeholder='Email'
                                             value={this.state.email}
@@ -76,7 +77,7 @@ class SignUp extends Component {
                                 </div>
                                 <div>
                                     <div>
-                                        <input
+                                        <Input
                                             type='password'
                                             placeholder='Password'
                                             value={this.state.password}
@@ -87,7 +88,7 @@ class SignUp extends Component {
                                 </div>
                                 <div>
                                     <div>
-                                        <input
+                                        <Input
                                             type='password'
                                             placeholder='Confirm Password'
                                             value={this.state.passwordConf}
@@ -109,7 +110,7 @@ class SignUp extends Component {
                                     isOpen={this.props.signUpModalIsOpen}
                                     id="cancel"
                                 >Cancel</Button>
-                            </form>
+                            </Form>
                             <p>{this.state.message}</p>
                         </ModalBody>
                     </Modal>

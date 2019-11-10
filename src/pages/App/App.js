@@ -1,7 +1,9 @@
 //    I M P O R T S
 import React, { Component } from 'react';
 
-// import videoService from '../../utils/videoService';
+import { Button } from 'reactstrap';
+
+import videoService from '../../utils/videoService';
 import userService from '../../utils/userService';
 
 import Nav from '../../components/Nav/Nav';
@@ -11,7 +13,9 @@ import LogIn from '../../components/LogIn/LogIn';
 import Landing from '../../components/Landing/Landing';
 import About from '../../components/About/About';
 import Videos from '../../components/Videos/Videos';
+import VideoPlayer from '../../components/VideoPlayer/VideoPlayer';
 import Subscribe from '../../components/Subscribe/Subscribe';
+import SubscriptionSuccess from '../../components/SubscriptionSuccess/SubscriptionSuccess';
 
 import './App.css';
 
@@ -20,19 +24,20 @@ class App extends Component {
     super();
     this.state = {
       ...this.getInitialState(),
-      user: userService.getUser(),
     }
   }
 
   getInitialState() {
     return {
+      user: userService.getUser(),
       videoList: [],
       showVideoPlayer: false,
       videoId: '',
       signUpModalIsOpen: false,
       logInModalIsOpen: false,
       dropdownOpen: false,
-      mobileNavIsOpen: false
+      mobileNavIsOpen: false,
+      userDropdownIsOpen: false
     }
   }
 
@@ -63,6 +68,12 @@ class App extends Component {
     });
   }
 
+  toggleUserDropdown = () => {
+    this.setState({
+      userDropdownIsOpen: !this.state.userDropdownIsOpen
+    });
+  }
+
 
   //     A U T H E N T C A T I O N   H A N D L E R   F U N C T I O N S
   handleLogOut = () => {
@@ -78,34 +89,40 @@ class App extends Component {
 
 
   //      V I D E O S
-  // listVideos = async () => {
-  //   let videoList = await videoService.getVideosList();
-  //   this.setState({
-  //     videoList: videoList
-  //   })
-  // }
+  listVideos = async () => {
+    console.log('listVideos in App called')
+    let videoList = await videoService.getVideosList();
+    console.log(videoList);
+    this.setState({
+      videoList: videoList
+    })
+    console.log(videoList);
+  }
 
-  // handlePlayVideo = async (videoId) => {
-  //   this.setState({
-  //     showVideoPlayer: true,
-  //     videoId: videoId
-  //   });
-  // }
+  handlePlayVideo = async (videoId) => {
+    this.setState({
+      showVideoPlayer: true,
+      videoId: videoId
+    });
+  }
 
 
   render() {
     return (
       <div>
         <Nav
+          user={this.state.user}
           signUpModalIsOpen={this.state.signUpModalIsOpen}
           logInModalIsOpen={this.state.logInModalIsOpen}
+          handleLogOut={this.handleLogOut}
           toggleLogInModal={this.toggleLogInModal}
           toggleSignUpModal={this.toggleSignUpModal}
           dropdownOpen={this.state.dropdownOpen}
           toggleNavItem={this.toggleNavItem}
-          user={this.state.user}
           toggleMobileNav={this.toggleMobileNav}
           mobileNavIsOpen={this.state.mobileNavIsOpen}
+          toggleUserDropdown={this.toggleUserDropdown}
+          userDropdownIsOpen={this.state.userDropdownIsOpen}
         />
         <MobileNav
           toggleMobileNav={this.toggleMobileNav}
@@ -124,8 +141,18 @@ class App extends Component {
         />
         <Landing />
         <About />
-        <Videos />
+        <Button
+          onClick={this.listVideos}
+        >List Videos</Button>
+
+        <Videos
+          videoList={this.state.videoList}
+          listVideos={this.listVideos}
+          handlePlayVideo={this.handlePlayVideo}
+        />
+        <VideoPlayer />
         <Subscribe />
+        <SubscriptionSuccess />
       </div>
     );
   }

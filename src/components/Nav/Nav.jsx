@@ -42,7 +42,24 @@ class Nav extends Component {
                     }
 
                     {this.props.user ?
-                        <i id='user-icon' class='far fa-user'></i>
+                        <Dropdown
+
+                            isOpen={this.props.userDropdownIsOpen}
+                            toggle={this.props.toggleUserDropdown}
+                        >
+                            <DropdownToggle id='user-icon'>
+                                <i className='far fa-user'></i>
+                            </DropdownToggle>
+                            <DropdownMenu id='dropdown-menu'>
+                                <DropdownItem
+                                    onClick={this.props.handleLogOut}>
+                                    Log Out
+                                </DropdownItem>
+                            </DropdownMenu>
+
+                        </Dropdown>
+
+
                         :
                         <div>
                             <Button
