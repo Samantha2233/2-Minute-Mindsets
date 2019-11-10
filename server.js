@@ -16,7 +16,8 @@ app.use(express.static(path.join(__dirname, 'build')));
 
 //    A P I   R O U T E S  
 // Keep above catch all!
-
+app.use('/api/users', require('./routes/api/users'));
+app.use('/api/videos', require('./routes/api/videos'));
 
 
 //    C A T C H   A L L 
