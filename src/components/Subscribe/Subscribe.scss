@@ -1,0 +1,37 @@
+.black-background {
+    background-color: black;
+    width: 100%;
+    height: 80vh;
+}
+
+#subscribe {
+    position: relative;
+
+    .box {
+        width: 95%;
+        max-width: 500px;
+        position: absolute;
+        // display: block;
+        left: 50%;
+        margin-left: -250px;
+        margin-top: 150px;
+    }
+
+    img {
+        width: 30%;
+        margin-left: 60%;
+    }
+
+    h2 {
+        font-weight: 900;
+        color: white;
+        letter-spacing: .05em;
+        font-size: 35px;
+    }
+    
+    p {
+        color: var(--blue);
+        
+    }
+}
+

@@ -5,6 +5,7 @@ import { Button } from 'reactstrap';
 
 import videoService from '../../utils/videoService';
 import userService from '../../utils/userService';
+import subscriptionService from '../../utils/subscriptionService';
 
 import Nav from '../../components/Nav/Nav';
 import MobileNav from '../../components/MobileNav/MobileNav';
@@ -31,6 +32,7 @@ class App extends Component {
     return {
       user: userService.getUser(),
       videoList: [],
+      emails: [],
       showVideoPlayer: false,
       videoId: '',
       signUpModalIsOpen: false,
@@ -107,6 +109,19 @@ class App extends Component {
   }
 
 
+
+  //      E M A I L   S U B S C R I P T I O N
+
+  handleEmailSubmission = async newEmailData => {
+    const newEmail = await subscriptionService.create(newEmailData);
+    console.log('newEmail from handleEmailSubmission in App', newEmail)
+    this.setState(state => ({
+      emails: [...state.emails, newEmail]
+    }));
+  }
+
+
+
   render() {
     return (
       <div>
@@ -151,7 +166,9 @@ class App extends Component {
           handlePlayVideo={this.handlePlayVideo}
         />
         <VideoPlayer />
-        <Subscribe />
+        <Subscribe
+          handleEmailSubmission={this.handleEmailSubmission}
+        />
         <SubscriptionSuccess />
       </div>
     );
