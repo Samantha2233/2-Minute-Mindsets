@@ -3,6 +3,8 @@
   --purple: #181860;
 	--lighterGrey: #ebebeb;
 	--blue: #52a9dc;
+	--mediumBlue: #66bef1;
+	--lightBlue: #a0d5f3;
 	--orange: #f78534;
 }
 
@@ -62,37 +64,18 @@ h1 {
 
 
 
+
+
 //  U N I V E R S A L   F O R M   S T Y L E S 
 
 label {
 	font-family: Metropolis, sans-serif;
-	font-size: 1.4em;
-	width: 200px;
-	color: white;
+	// font-size: 1.4em;
+	// width: 200px;
+	// color: white;
 }
-
-input {
-	border: 1px solid var(--purple);
-	border-radius: 8px;
-	height: 1.5em;
-	}
 
 a {
 	text-decoration: none;
 }
 
-#cancel {
-    background-color: transparent;
-    color: var(--purple);
-    border: none;
-    margin: 0 0 2px 0;
-    padding: 0;
-    &:hover {
-        color: var(--blue);
-        font-weight: 500;
-    }
-    &:focus {
-        border: none;
-        box-shadow: none;
-    }
-}

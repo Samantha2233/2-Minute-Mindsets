@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import userService from '../../utils/userService';
-import { Container, Button, Modal, ModalHeader, ModalBody } from 'reactstrap';
+import { Button, Modal, ModalHeader, ModalBody } from 'reactstrap';
 import { Form, Input } from 'reactstrap';
 import './SignUp.scss';
 
@@ -44,81 +44,79 @@ class SignUp extends Component {
     render() {
         return (
             <div>
-                <Container id="modal-container">
-                    <Modal
-                        isOpen={this.props.signUpModalIsOpen}
-                        className='sign-up-form'
-                    >
-                        <ModalHeader className='sign-up-form'>
-                            Sign Up
+                <Modal
+                    isOpen={this.props.signUpModalIsOpen}
+                    className='sign-up-form'
+                >
+                    <ModalHeader className='sign-up-form'>
+                        Sign Up
 
                         </ModalHeader>
-                        <ModalBody className='sign-up-form'>
-                            <Form onSubmit={this.handleSubmit}>
+                    <ModalBody className='sign-up-form'>
+                        <Form onSubmit={this.handleSubmit}>
+                            <div>
                                 <div>
-                                    <div>
-                                        <Input
-                                            type='text'
-                                            placeholder='Name'
-                                            value={this.state.name}
-                                            name='name'
-                                            onChange={this.handleChange}
-                                        />
-                                    </div>
+                                    <Input
+                                        type='text'
+                                        placeholder='Name'
+                                        value={this.state.name}
+                                        name='name'
+                                        onChange={this.handleChange}
+                                    />
                                 </div>
+                            </div>
+                            <div>
                                 <div>
-                                    <div>
-                                        <Input
-                                            type='email'
-                                            placeholder='Email'
-                                            value={this.state.email}
-                                            name='email'
-                                            onChange={this.handleChange}
-                                        />
-                                    </div>
+                                    <Input
+                                        type='email'
+                                        placeholder='Email'
+                                        value={this.state.email}
+                                        name='email'
+                                        onChange={this.handleChange}
+                                    />
                                 </div>
+                            </div>
+                            <div>
                                 <div>
-                                    <div>
-                                        <Input
-                                            type='password'
-                                            placeholder='Password'
-                                            value={this.state.password}
-                                            name='password'
-                                            onChange={this.handleChange}
-                                        />
-                                    </div>
+                                    <Input
+                                        type='password'
+                                        placeholder='Password'
+                                        value={this.state.password}
+                                        name='password'
+                                        onChange={this.handleChange}
+                                    />
                                 </div>
+                            </div>
+                            <div>
                                 <div>
-                                    <div>
-                                        <Input
-                                            type='password'
-                                            placeholder='Confirm Password'
-                                            value={this.state.passwordConf}
-                                            name='passwordConf'
-                                            onChange={this.handleChange}
-                                        />
-                                    </div>
+                                    <Input
+                                        type='password'
+                                        placeholder='Confirm Password'
+                                        value={this.state.passwordConf}
+                                        name='passwordConf'
+                                        onChange={this.handleChange}
+                                    />
                                 </div>
-                                <div className='button-box'>
-                                    <Button
-                                        type='submit'
-                                        outline color='primary'
-                                        disabled={this.isFormInvalid()}
-                                        handleSubmit={this.handleSubmit}
-                                        onClick={this.props.toggleSignUpModal}
-                                        isOpen={this.props.signUpModalIsOpen}
-                                    >Sign Up</Button>
-                                    <Button
-                                        onClick={this.props.toggleSignUpModal}
-                                        isOpen={this.props.signUpModalIsOpen}
-                                        id="cancel"
-                                    >Cancel</Button>
-                                </div>
-                            </Form>
-                            <p>{this.state.message}</p>
-                        </ModalBody>
-                    </Modal>
-                </Container>
+                            </div>
+                            <div className='button-box'>
+                                <Button
+                                    type='submit'
+                                    outline color='primary'
+                                    disabled={this.isFormInvalid()}
+                                    handleSubmit={this.handleSubmit}
+                                    onClick={this.props.toggleSignUpModal}
+                                    isOpen={this.props.signUpModalIsOpen}
+                                >Sign Up</Button>
+                                <Button
+                                    onClick={this.props.toggleSignUpModal}
+                                    isOpen={this.props.signUpModalIsOpen}
+                                    id="cancel"
+                                >Cancel</Button>
+                            </div>
+                        </Form>
+                        <p>{this.state.message}</p>
+                    </ModalBody>
+                </Modal>
             </div>
         )
     }

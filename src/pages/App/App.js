@@ -39,7 +39,8 @@ class App extends Component {
       logInModalIsOpen: false,
       dropdownOpen: false,
       mobileNavIsOpen: false,
-      userDropdownIsOpen: false
+      userDropdownIsOpen: false,
+      thankYouModalIsOpen: false
     }
   }
 
@@ -76,6 +77,14 @@ class App extends Component {
     });
   }
 
+  //      S U B S C R I P T I O N   T H A N K   Y O U  
+  toggleThankYouModal = () => {
+    console.log('toggleThankYouModal in App called')
+    this.setState({
+      thankYouModalIsOpen: !this.state.thankYouModalIsOpen
+    })
+  }
+
 
   //     A U T H E N T C A T I O N   H A N D L E R   F U N C T I O N S
   handleLogOut = () => {
@@ -93,7 +102,7 @@ class App extends Component {
   //      V I D E O S
   listVideos = async () => {
     console.log('listVideos in App called')
-    let videoList = await videoService.getVideosList();
+    let videoList = await videoService.getVideo;
     console.log(videoList);
     this.setState({
       videoList: videoList
@@ -116,9 +125,13 @@ class App extends Component {
     const newEmail = await subscriptionService.create(newEmailData);
     console.log('newEmail from handleEmailSubmission in App', newEmail)
     this.setState(state => ({
-      emails: [...state.emails, newEmail]
+      emails: [...state.emails, newEmail],
+      thankYouModalIsOpen: true
     }));
   }
+
+
+
 
 
 
@@ -158,6 +171,7 @@ class App extends Component {
         <About />
         <Button
           onClick={this.listVideos}
+          type='submit'
         >List Videos</Button>
 
         <Videos
@@ -169,8 +183,17 @@ class App extends Component {
         <Subscribe
           handleEmailSubmission={this.handleEmailSubmission}
         />
-        <SubscriptionSuccess />
-      </div>
+        <Button
+          onClick={this.toggleThankYouModal}
+          type='submit'
+        >
+          Subscription Success
+        </Button>
+        <SubscriptionSuccess
+          thankYouModalIsOpen={this.state.thankYouModalIsOpen}
+          toggleThankYouModal={this.toggleThankYouModal}
+        />
+      </div >
     );
   }
 }

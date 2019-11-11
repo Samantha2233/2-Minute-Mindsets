@@ -13,6 +13,12 @@ class Subscribe extends Component {
     handleSubmit = e => {
         e.preventDefault();
         this.props.handleEmailSubmission(this.state.formData);
+        e.target.reset();
+        // this.setState({
+        //     // TODO: Clear inout feilds after submission
+        //     formData[0]: '',
+        //     email: ''
+        // })
     };
 
     handleChange = e => {
@@ -21,6 +27,8 @@ class Subscribe extends Component {
             formData
         });
     }
+
+
 
     render() {
         return (
