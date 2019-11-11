@@ -1,0 +1,23 @@
+#exit-thankyou {
+    width: 18px;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+
+
+.thankyou-hdr, .thankyou-body {
+    padding: 0 50px 50px 50px ;
+}
+
+.thankyou-hdr {
+
+    padding-top: 50px;
+    padding-bottom: 0px;
+    
+    h5 {
+        color: var(--mediumBlue);
+
+    }
+}
