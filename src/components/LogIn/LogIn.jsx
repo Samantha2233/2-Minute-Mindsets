@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import userService from '../../utils/userService';
-import { Container, Button, Modal, ModalBody } from 'reactstrap';
+import { Container, Button, Modal, ModalHeader, ModalBody } from 'reactstrap';
 import { Form, Input } from 'reactstrap';
 import './LogIn.scss';
 
@@ -38,9 +38,12 @@ class LogIn extends Component {
                     <Modal
                         isOpen={this.props.logInModalIsOpen}
                         id="log-in-modal"
+                        className='sign-up-form'
                     >
-                        <h2>Log In</h2>
-                        <ModalBody>
+                        <ModalHeader className='sign-up-form'>
+                            Log In
+                        </ModalHeader>
+                        <ModalBody className='sign-up-form'>
                             <Form onSubmit={this.handleSubmit}>
                                 <div>
                                     <div>
@@ -64,18 +67,20 @@ class LogIn extends Component {
                                         />
                                     </div>
                                 </div>
-                                <Button
-                                    type='submit'
-                                    color='primary'
-                                    handleSubmit={this.handleSubmit}
-                                    onClick={this.props.toggleLogInModal}
-                                    isOpen={this.props.logInModalIsOpen}
-                                >Log In</Button>
-                                <Button
-                                    onClick={this.props.toggleLogInModal}
-                                    isOpen={this.props.logInModalIsOpen}
-                                    id="cancel"
-                                >Cancel</Button>
+                                <div className='button-box'>
+                                    <Button
+                                        type='submit'
+                                        outline color='primary'
+                                        handleSubmit={this.handleSubmit}
+                                        onClick={this.props.toggleLogInModal}
+                                        isOpen={this.props.logInModalIsOpen}
+                                    >Log In</Button>
+                                    <Button
+                                        onClick={this.props.toggleLogInModal}
+                                        isOpen={this.props.logInModalIsOpen}
+                                        id="cancel"
+                                    >Cancel</Button>
+                                </div>
                             </Form>
                             <p>{this.state.message}</p>
                         </ModalBody>
