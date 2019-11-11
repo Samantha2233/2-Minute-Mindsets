@@ -44,15 +44,17 @@ class SignUp extends Component {
     render() {
         return (
             <div>
-                <Container>
+                <Container id="modal-container">
                     <Modal
                         isOpen={this.props.signUpModalIsOpen}
+                        className='sign-up-form'
                     >
-                        <ModalHeader >
+                        <ModalHeader className='sign-up-form'>
                             Sign Up
+
                         </ModalHeader>
-                        <ModalBody>
-                            <Form className='sign-up-form' onSubmit={this.handleSubmit}>
+                        <ModalBody className='sign-up-form'>
+                            <Form onSubmit={this.handleSubmit}>
                                 <div>
                                     <div>
                                         <Input
@@ -97,19 +99,21 @@ class SignUp extends Component {
                                         />
                                     </div>
                                 </div>
-                                <Button
-                                    type='submit'
-                                    color='primary'
-                                    disabled={this.isFormInvalid()}
-                                    handleSubmit={this.handleSubmit}
-                                    onClick={this.props.toggleSignUpModal}
-                                    isOpen={this.props.signUpModalIsOpen}
-                                >Sign Up</Button>
-                                <Button
-                                    onClick={this.props.toggleSignUpModal}
-                                    isOpen={this.props.signUpModalIsOpen}
-                                    id="cancel"
-                                >Cancel</Button>
+                                <div className='button-box'>
+                                    <Button
+                                        type='submit'
+                                        outline color='primary'
+                                        disabled={this.isFormInvalid()}
+                                        handleSubmit={this.handleSubmit}
+                                        onClick={this.props.toggleSignUpModal}
+                                        isOpen={this.props.signUpModalIsOpen}
+                                    >Sign Up</Button>
+                                    <Button
+                                        onClick={this.props.toggleSignUpModal}
+                                        isOpen={this.props.signUpModalIsOpen}
+                                        id="cancel"
+                                    >Cancel</Button>
+                                </div>
                             </Form>
                             <p>{this.state.message}</p>
                         </ModalBody>
