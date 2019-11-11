@@ -101,13 +101,13 @@ class App extends Component {
 
   //      V I D E O S
   listVideos = async () => {
-    console.log('listVideos in App called')
-    let videoList = await videoService.getVideo;
-    console.log(videoList);
+    console.log('listVideos in App called');
+    let videoList = await videoService.getChannelVideos();
+    console.log('videoList before setState', videoList);
     this.setState({
       videoList: videoList
-    })
-    console.log(videoList);
+    });
+    console.log('videoList after setState', videoList);
   }
 
   handlePlayVideo = async (videoId) => {
