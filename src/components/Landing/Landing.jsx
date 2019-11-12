@@ -5,8 +5,8 @@ const Landing = () => {
     return (
         <div id="landing">
             <div id="headliner">
-                <h1>2 Minute Mindsets</h1>
-                <p id="subliner">It only takes two minutes to set your sights on an extraordinary life.</p>
+                <h1 id="h1">2 Minute Mindsets</h1>
+                <p id="subliner">It only takes two minutes to take in some wisdom for a better mindset.</p>
             </div>
             <img id="landing-background" src='../../../images/clouds.jpg' alt='Landing Page Background (clouds)' />
         </div>
