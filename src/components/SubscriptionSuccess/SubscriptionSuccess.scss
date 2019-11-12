@@ -2,22 +2,38 @@
     width: 18px;
     position: absolute;
     top: 20px;
-    right: 20px;
+    right: -50px;
+}
+
+#thankyou-modal {
+    position: relative;
 }
 
 
 
 .thankyou-hdr, .thankyou-body {
     padding: 0 50px 50px 50px ;
+    // position: absolute;
 }
+
 
 .thankyou-hdr {
 
     padding-top: 50px;
     padding-bottom: 0px;
+    position: absolute;
     
     h5 {
-        color: var(--mediumBlue);
-
+        color: var(--purple);
+        font-size: 30px;
     }
+}
+
+.thankyou-body {
+    position: absolute;
+    top: 100px;
+}
+
+#lights-in-hand {
+    width: 100%;
 }

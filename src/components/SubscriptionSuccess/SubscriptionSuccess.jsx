@@ -1,13 +1,13 @@
 import React from 'react';
-import { Button, Modal, ModalHeader, ModalBody } from 'reactstrap';
+import { Button, Modal } from 'reactstrap';
 import './SubscriptionSuccess.scss'
 
 const SubscriptionSuccess = (props) => {
     return (
         <div>
-            <Modal isOpen={props.thankYouModalIsOpen}>
-                <ModalHeader className='thankyou-hdr'>
-                    Thanks for Subscribing!
+            <Modal id='thankyou-modal' isOpen={props.thankYouModalIsOpen}>
+                <div className='thankyou-hdr'>
+                    <h5>Thanks for Subscribing!</h5>
                     <Button
                         onClick={props.toggleThankYouModal}
                         isOpen={props.thankYouModalIsOpen}
@@ -15,10 +15,13 @@ const SubscriptionSuccess = (props) => {
 
                     ><img id="exit-thankyou" src='../../../images/Exit-icon-purple.png' alt='exit icon'></img>
                     </Button>
-                </ModalHeader>
-                <ModalBody className='thankyou-body'>
+                </div>
+                <div className='thankyou-body'>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                </ModalBody>
+                </div>
+
+                <img id='lights-in-hand' src='../../../images/lights-in-hand.jpeg' alt='Shot by Diego PH' />
+
             </Modal>
         </div>
     )
