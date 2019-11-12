@@ -12,10 +12,11 @@ module.exports = {
 
 // Get back a list of videos from youtube API (with channel id)
 async function getChannelVideos(req, res) {
-    console.log('getChannelVideos called in controllers');
+    console.log('PRINTS TO NODEMON SERVER getChannelVideos called in controllers');
     const url = `${BASE_URL}activities?part=snippet,contentDetails&channelId=${CHANNEL_ID}&key=${process.env.YOUTUBE_API_KEY}&maxResults=50`;
     return res.json(await fetch(url).then(res => res.json()));
 }
+
 
 
 // Get back single video JSON from youtube API

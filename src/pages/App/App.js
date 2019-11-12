@@ -1,7 +1,9 @@
 //    I M P O R T S
 import React, { Component } from 'react';
+// import { Route, Switch } from "react-router-dom";
+// import { Button } from 'reactstrap';
+import './App.css';
 
-import { Button } from 'reactstrap';
 
 import videoService from '../../utils/videoService';
 import userService from '../../utils/userService';
@@ -13,18 +15,20 @@ import SignUp from '../../components/SignUp/SignUp';
 import LogIn from '../../components/LogIn/LogIn';
 import Landing from '../../components/Landing/Landing';
 import About from '../../components/About/About';
+import FeatureVideo from '../../components/FeatureVideo/FeatureVideo';
 import Videos from '../../components/Videos/Videos';
-import VideoPlayer from '../../components/VideoPlayer/VideoPlayer';
+// import VideoPlayer from '../../components/VideoPlayer/VideoPlayer';
 import Subscribe from '../../components/Subscribe/Subscribe';
 import SubscriptionSuccess from '../../components/SubscriptionSuccess/SubscriptionSuccess';
 
-import './App.css';
+
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
       ...this.getInitialState(),
+      ...this.listVideos()
     }
   }
 
@@ -32,6 +36,7 @@ class App extends Component {
     return {
       user: userService.getUser(),
       videoList: [],
+      featureVideo: '',
       emails: [],
       showVideoPlayer: false,
       videoId: '',
@@ -100,22 +105,27 @@ class App extends Component {
 
 
   //      V I D E O S
+  //  List channel videos from Youtube API onto home page
   listVideos = async () => {
     console.log('listVideos in App called');
     let videoList = await videoService.getChannelVideos();
-    console.log('videoList before setState', videoList);
+    console.log('videoList on App', videoList);
     this.setState({
       videoList: videoList
     });
-    console.log('videoList after setState', videoList);
   }
 
-  handlePlayVideo = async (videoId) => {
-    this.setState({
-      showVideoPlayer: true,
-      videoId: videoId
-    });
-  }
+
+
+
+
+
+  // handlePlayVideo = async (videoId) => {
+  //   this.setState({
+  //     showVideoPlayer: true,
+  //     videoId: videoId
+  //   });
+  // }
 
 
 
@@ -168,27 +178,20 @@ class App extends Component {
           handleSignUpOrLogIn={this.handleSignUpOrLogIn}
         />
         <Landing />
+        <FeatureVideo
+          videoList={this.state.videoList}
+        />
         <About />
-        <Button
-          onClick={this.listVideos}
-          type='submit'
-        >List Videos</Button>
 
         <Videos
           videoList={this.state.videoList}
           listVideos={this.listVideos}
           handlePlayVideo={this.handlePlayVideo}
         />
-        <VideoPlayer />
+        {/* <VideoPlayer /> */}
         <Subscribe
           handleEmailSubmission={this.handleEmailSubmission}
         />
-        <Button
-          onClick={this.toggleThankYouModal}
-          type='submit'
-        >
-          Subscription Success
-        </Button>
         <SubscriptionSuccess
           thankYouModalIsOpen={this.state.thankYouModalIsOpen}
           toggleThankYouModal={this.toggleThankYouModal}

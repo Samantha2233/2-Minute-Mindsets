@@ -1,0 +1,33 @@
+.videos-box {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+    justify-content: center;
+}
+
+#video-section {
+    padding: 100px 0;
+    background-color: var(--purple);
+    
+    p {
+        color: var(--lightBlue);
+        width: 310px;
+    }
+}
+
+.video {
+    margin: 10px;
+}
+
+#more-videos-btn {
+    background-color: transparent;
+    border: 2px solid var(--blue);
+    margin-top: 15px;
+    color: var(--lightBlue);
+
+    &:hover {
+        background-color: var(--blue);
+        color: var(--purple);
+    }
+}
