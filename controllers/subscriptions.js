@@ -6,6 +6,6 @@ module.exports = {
 
 async function create(req, res) {
     const email = await Email.create(req.body);
-    console.log(email);
+    console.log('Prints in nodemon server', email);
     res.status(201).json(email);
 }
