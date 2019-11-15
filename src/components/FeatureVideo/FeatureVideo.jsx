@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Button } from 'reactstrap';
 import './FeatureVideo.scss';
 
 class FeatureVideo extends Component {
@@ -14,16 +15,29 @@ class FeatureVideo extends Component {
                             <div key={idx}>
                                 {idx <= 0 ?
                                     <div>
-                                        <img
-                                            // onClick={() => (this.props.handlePlayVideo(video.items[0].id))}
-                                            src={video.snippet.thumbnails.high.url}
-                                            alt='video'
-                                        ></img>
-                                        {/* <h3>
-                                            {video.snippet.title}
-                                        </h3>
-                                        <h2>{video.snippet.channelTitle}</h2>
-                                        <p>{video.snippet.description}</p> */}
+
+                                        <div id='feature-content-box'>
+                                            <Button
+                                                id="latest-video-button"
+                                                onClick={this.props.handlePlayVideo}
+                                            >
+                                                <i class="fab fa-youtube" id='youtube-icon'></i>
+                                                Watch Latest Video
+                                            </Button>
+                                            <p id="feature-title">{video.snippet.title}</p>
+                                        </div>
+
+
+                                        {/* <div className='overlay'>
+                                            <img id='feature-img' src={video.snippet.thumbnails.medium.url} alt='' />
+                                        </div> */}
+                                        {/* // onClick={() => (this.props.handlePlayVideo(video.items[0].id))} */}
+
+
+
+                                        <img src='../../../images/youtube-logo.png' alt='Youtube icon for play viedo'
+                                            id='youtube-logo'
+                                        />
                                     </div>
                                     :
                                     <>
