@@ -18,18 +18,18 @@ async function getChannelVideos() {
 
 
 // Get a single video's information based on videoId
-// async function getVideo(videoId) {
-//     const options = {
-//         method: 'POST',
-//         headers: {
-//             'Content-Type': 'application/json',
-//             'Authorization': 'Bearer ' + tokenService.getToken()
-//         },
-//         body: JSON.stringify({ videoId: videoId })
-//     };
-//     return await fetch(`/api/videos/video`, options)
-//         .then(res => res.json());
-// }
+async function getVideo(videoId) {
+    const options = {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            // 'Authorization': 'Bearer ' + tokenService.getToken()
+        },
+        body: JSON.stringify({ videoId: videoId })
+    };
+    return await fetch(`/api/videos/video`, options)
+        .then(res => res.json());
+}
 
 
 // Get array of videos back from DB
@@ -44,7 +44,7 @@ async function getChannelVideos() {
 // }
 
 export default {
-    // getVideo,
+    getVideo,
     // getVideosList,
     getChannelVideos,
 }

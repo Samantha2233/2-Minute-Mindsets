@@ -4,10 +4,12 @@
     background-color: black;
     position: absolute;
     left: 5%;
-    top: 270px;
+    top: 300px;
     display: flex;
 
 }
+
+
 
 .overlay {
     width: 100%;
@@ -26,6 +28,11 @@
     border: 0;
     margin-bottom: 15px;
     color: black;
+    border: 2px solid white;
+
+    &:hover {
+        border: 2px solid var(--lightBlue);
+    }
 }
 
 #feature-img {
@@ -44,9 +51,33 @@
     margin-left: 20%;
 }
 
+
+
+
+
+
 #feature-title {
     color: white;
     width: 300px;
+
+}
+
+@media only screen and (max-width: 650px) {
+    .feature-box {
+        width: 90%;
+        height: 40%;
+    }
+
+    #feature-content-box {
+        margin-top: 10px;
+        justify-content: flex-start;
+        width: 100%;
+        margin-left: 3%;
+    }
+
+    #feature-title {
+        width: 90%;
+    }
 
 }
 

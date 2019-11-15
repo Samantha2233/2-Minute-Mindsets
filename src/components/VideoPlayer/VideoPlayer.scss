@@ -1,0 +1,26 @@
+#video-player-modal {
+    max-width: 950px;
+    height: 550px;
+    background: transparent;
+}
+
+.modal-content {
+    background: transparent;
+    border: 0;
+    top: 80px;
+}
+
+#button-exit {
+    height: 0px;
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+#exit-video-player {
+    width: 22px;
+    position: absolute;
+    right: 20px;
+    top: -30px;
+    color: white;
+}

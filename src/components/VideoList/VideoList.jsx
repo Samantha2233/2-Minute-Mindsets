@@ -10,12 +10,13 @@ const VideoList = (props) => {
                     return (
                         <div key={idx}>
                             {idx <= 10 ?
-                                <div className='list-row'>
-                                    <i class="fab fa-youtube"></i>
-                                    <h6
-                                        onClick={() => (props.handlePlayVideo(video.id))}
-                                    >{video.snippet.title}</h6>
-
+                                <div className='list-row'
+                                    onClick={() => (props.handlePlayVideo(video.contentDetails.upload.videoId))}
+                                >
+                                    <div className='row-for-highlight'>
+                                        <i className="fab fa-youtube"></i>
+                                    </div>
+                                    <h6>{video.snippet.title}</h6>
                                 </div>
                                 :
                                 <>

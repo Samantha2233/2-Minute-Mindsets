@@ -15,10 +15,15 @@ class Videos extends Component {
                                 <div key={idx}>
                                     {idx <= 5 ?
                                         <div className='video'>
+                                            <div className='video-overlay'
+                                                onClick={() => (this.props.handlePlayVideo(video.contentDetails.upload.videoId))}
+                                            >
+                                                <i className="fab fa-youtube videos-youtube-icon"></i>
+                                            </div>
                                             <img
-                                                onClick={() => (this.props.handlePlayVideo(video.id))}
                                                 src={video.snippet.thumbnails.medium.url}
                                                 alt='video'
+                                                className='video-img'
                                             ></img>
                                             <p>
                                                 A small description of the video from youtube... sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.

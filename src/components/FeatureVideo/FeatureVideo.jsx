@@ -19,9 +19,9 @@ class FeatureVideo extends Component {
                                         <div id='feature-content-box'>
                                             <Button
                                                 id="latest-video-button"
-                                                onClick={this.props.handlePlayVideo}
+                                                onClick={() => (this.props.handlePlayVideo(video.contentDetails.upload.videoId))}
                                             >
-                                                <i class="fab fa-youtube" id='youtube-icon'></i>
+                                                <i className="fab fa-youtube" id='youtube-icon'></i>
                                                 Watch Latest Video
                                             </Button>
                                             <p id="feature-title">{video.snippet.title}</p>
