@@ -14,11 +14,6 @@ class Subscribe extends Component {
         e.preventDefault();
         this.props.handleEmailSubmission(this.state.formData);
         e.target.reset();
-        // this.setState({
-        //     // TODO: Clear inout feilds after submission
-        //     formData[0]: '',
-        //     email: ''
-        // })
     };
 
     handleChange = e => {
@@ -61,9 +56,9 @@ class Subscribe extends Component {
                                 />
                             </FormGroup>
                             <Button
-                                outline color='primary'
                                 type='submit'
-                            >Submit</Button>
+                                id='subscribe-btn'
+                            >Subscribe</Button>
                         </Form>
                     </div>
                     <img id='blue-flower' src='../../../images/blue-flower.jpeg' alt='Vladimir Malyutin on Unsplash' />

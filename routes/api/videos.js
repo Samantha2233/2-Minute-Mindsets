@@ -7,8 +7,8 @@ const videosCtrl = require('../../controllers/videos');
 
 router.use(require('../../config/auth'));
 router.post('/', videosCtrl.getChannelVideos);
+router.post('/', videosCtrl.getVideo);
 // router.post('/video', videosCtrl.video);
-// router.get('/', videosCtrl.getVideos);
 // router.post('/search', checkAuth,  videosCtrl.search);
 
 

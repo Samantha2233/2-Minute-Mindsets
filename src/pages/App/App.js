@@ -100,14 +100,19 @@ class App extends Component {
   handleSignUpOrLogIn = () => {
     console.log('handleSignUpOrLogin called');
     this.setState({ user: userService.getUser() });
+    console.log(this.state.user);
+    this.forceUpdate();
   }
 
 
 
+
+
+
+
   //      V I D E O S
-  //  List channel videos from Youtube API onto home page
+  //  List latest channel videos from Youtube API onto home page
   listVideos = async () => {
-    console.log('listVideos in App called');
     let videoList = await videoService.getChannelVideos();
     console.log('videoList on App', videoList);
     this.setState({
@@ -115,13 +120,13 @@ class App extends Component {
     });
   }
 
-
   handlePlayVideo = async (videoId) => {
     console.log(videoId);
     this.setState({
       videoPlayerIsOpen: true,
       videoId: videoId
     });
+    console.log(videoId);
   }
 
   toggleVideoPlayer = () => {
@@ -130,6 +135,8 @@ class App extends Component {
       videoPlayerIsOpen: !this.state.videoPlayerIsOpen
     })
   }
+
+
 
 
 
@@ -176,10 +183,10 @@ class App extends Component {
           mobileNavIsOpen={this.state.mobileNavIsOpen}
         />
         <SignUp
+          user={this.state.user}
           toggleSignUpModal={this.toggleSignUpModal}
           signUpModalIsOpen={this.state.signUpModalIsOpen}
           handleSignUpOrLogIn={this.handleSignUpOrLogIn}
-        // history={history}
         />
         <LogIn
           toggleLogInModal={this.toggleLogInModal}
@@ -189,9 +196,13 @@ class App extends Component {
         <Landing />
         <FeatureVideo
           videoList={this.state.videoList}
+          handlePlayVideo={this.handlePlayVideo}
+          videoPlayerIsOpen={this.state.videoPlayerIsOpen}
         />
         <VideoList
           videoList={this.state.videoList}
+          listVideos={this.listVideos}
+          handlePlayVideo={this.handlePlayVideo}
         />
         <About />
 

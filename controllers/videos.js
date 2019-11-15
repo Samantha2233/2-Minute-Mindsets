@@ -6,7 +6,7 @@ const CHANNEL_ID = 'UCM9nVV4XuU_xmfMeibrCOoA';
 
 module.exports = {
     getChannelVideos,
-    // video,
+    getVideo,
     // getVideos
 }
 
@@ -20,11 +20,11 @@ async function getChannelVideos(req, res) {
 
 
 // Get back single video JSON from youtube API
-// async function video(req, res) {
-//     const url = `${BASE_URL}videos?part=snippet&id=${req.body.videoId}&key=${process.env.YOUTUBE_API_KEY}`;
+async function getVideo(req, res) {
+    const url = `${BASE_URL}videos?part=snippet&id=${req.body.videoId}&key=${process.env.YOUTUBE_API_KEY}`;
 
-//     return res.json(await fetch(url).then(res => res.json()));
-// }
+    return res.json(await fetch(url).then(res => res.json()));
+}
 
 // Get all videos in DB and populate them as full objects
 // async function getVideos(req, res) {
