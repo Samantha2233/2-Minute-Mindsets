@@ -14,20 +14,34 @@
         color: var(--lightBlue);
         width: 310px;
     }
+
+    h3 {
+        color: aliceblue;
+        margin-left: 15%;
+        margin-bottom: 40px;
+    }
 }
 
 .video {
     margin: 10px;
+
+    p {
+        margin-top: 8px;
+    }
 }
 
 #more-videos-btn {
-    background-color: transparent;
-    border: 2px solid var(--blue);
+    background-color: white;
+    border: 0;
+    margin-bottom: 15px;
+    color: black;
     margin-top: 15px;
-    color: var(--lightBlue);
-
+    margin-right: 100px;
+    // color: var(--lightBlue);
+    
     &:hover {
-        background-color: var(--blue);
+        background-color: var(--lightBlue);
         color: var(--purple);
+        // border: 2px solid var(--blue);
     }
 }

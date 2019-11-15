@@ -7,6 +7,7 @@ class Videos extends Component {
     render() {
         return (
             <div id="video-section">
+                <h3>Latest Videos</h3>
                 <div className='videos-box'>
                     {this.props.videoList.items ? (
                         this.props.videoList.items.map((video, idx) => {
@@ -15,18 +16,13 @@ class Videos extends Component {
                                     {idx <= 5 ?
                                         <div className='video'>
                                             <img
-                                                // onClick={() => (this.props.handlePlayVideo(video.items[0].id))}
+                                                onClick={() => (this.props.handlePlayVideo(video.id))}
                                                 src={video.snippet.thumbnails.medium.url}
                                                 alt='video'
                                             ></img>
                                             <p>
                                                 A small description of the video from youtube... sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                                             </p>
-                                            {/* <h3>
-                                            {video.snippet.title}
-                                        </h3>
-                                        <h2>{video.snippet.channelTitle}</h2>
-                                        <p>{video.snippet.description}</p> */}
                                         </div>
                                         :
                                         <>
