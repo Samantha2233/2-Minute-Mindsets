@@ -16,8 +16,9 @@ import LogIn from '../../components/LogIn/LogIn';
 import Landing from '../../components/Landing/Landing';
 import About from '../../components/About/About';
 import FeatureVideo from '../../components/FeatureVideo/FeatureVideo';
+import VideoList from '../../components/VideoList/VideoList';
 import Videos from '../../components/Videos/Videos';
-// import VideoPlayer from '../../components/VideoPlayer/VideoPlayer';
+import VideoPlayer from '../../components/VideoPlayer/VideoPlayer';
 import Subscribe from '../../components/Subscribe/Subscribe';
 import SubscriptionSuccess from '../../components/SubscriptionSuccess/SubscriptionSuccess';
 
@@ -36,10 +37,9 @@ class App extends Component {
     return {
       user: userService.getUser(),
       videoList: [],
-      featureVideo: '',
-      emails: [],
-      showVideoPlayer: false,
       videoId: '',
+      emails: [],
+      videoPlayerIsOpen: false,
       signUpModalIsOpen: false,
       logInModalIsOpen: false,
       dropdownOpen: false,
@@ -116,16 +116,25 @@ class App extends Component {
   }
 
 
+  handlePlayVideo = async (videoId) => {
+    console.log(videoId);
+    this.setState({
+      videoPlayerIsOpen: true,
+      videoId: videoId
+    });
+  }
+
+  toggleVideoPlayer = () => {
+    console.log('toggleVideoPlayer in App called')
+    this.setState({
+      videoPlayerIsOpen: !this.state.videoPlayerIsOpen
+    })
+  }
 
 
 
 
-  // handlePlayVideo = async (videoId) => {
-  //   this.setState({
-  //     showVideoPlayer: true,
-  //     videoId: videoId
-  //   });
-  // }
+
 
 
 
@@ -181,6 +190,9 @@ class App extends Component {
         <FeatureVideo
           videoList={this.state.videoList}
         />
+        <VideoList
+          videoList={this.state.videoList}
+        />
         <About />
 
         <Videos
@@ -188,7 +200,12 @@ class App extends Component {
           listVideos={this.listVideos}
           handlePlayVideo={this.handlePlayVideo}
         />
-        {/* <VideoPlayer /> */}
+        <VideoPlayer
+          videoId={this.state.videoId}
+          videoPlayerIsOpen={this.state.videoPlayerIsOpen}
+          toggleVideoPlayer={this.toggleVideoPlayer}
+          handlePlayVideo={this.handlePlayVideo}
+        />
         <Subscribe
           handleEmailSubmission={this.handleEmailSubmission}
         />

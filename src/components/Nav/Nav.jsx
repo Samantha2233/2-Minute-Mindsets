@@ -8,13 +8,15 @@ class Nav extends Component {
         return (
             <div className='nav' >
                 <div className='logo-and-links'>
-                    <img className='logo' src='../../../images/logo-purple.png' alt='logo' />
+                    <a href='#landing'>
+                        <img className='logo' src='../../../images/logo-purple.png' alt='logo' />
+                    </a>
                     <ul>
                         <li><a href="#about">About</a></li>
                         <Dropdown isOpen={this.props.dropdownOpen} toggle={this.props.toggleNavItem}>
                             <DropdownToggle id='resources'>Resources</DropdownToggle>
                             <DropdownMenu>
-                                <DropdownItem><a href='#videos'>Videos</a></DropdownItem>
+                                <DropdownItem><a href='#video-section'>Videos</a></DropdownItem>
                                 <DropdownItem>Transcriptions</DropdownItem>
                             </DropdownMenu>
                         </Dropdown>
