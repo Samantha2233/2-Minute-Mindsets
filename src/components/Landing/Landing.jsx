@@ -6,7 +6,7 @@ const Landing = () => {
         <div id="landing">
             <div id="headliner">
                 <h1 id="h1">2 Minute Mindsets</h1>
-                <p id="subliner">It only takes two minutes to take in some wisdom for a better mindset.</p>
+                <p id="subliner">It only takes two minutes to start building a better mindset.</p>
             </div>
             <img id="landing-background" src='../../../images/clouds.jpg' alt='Landing Page Background (clouds)' />
         </div>

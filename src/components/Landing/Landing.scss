@@ -2,7 +2,7 @@
     display: grid;
 	width:100vw;
 	height: 100vh;
-	grid-template-columns: 10% 80% 10%;
+	grid-template-columns: 10% 80% 1%;
     grid-template-rows: 10% 30%;
     overflow: hidden;
     padding-top: 3em;
@@ -37,7 +37,7 @@
     
     @media only screen and (max-width: 850px) {
         #h1 {
-            font-size: 9vw;
+            font-size: 7vw;
         }
         #subliner {
             // margin-left: 10vmin;
