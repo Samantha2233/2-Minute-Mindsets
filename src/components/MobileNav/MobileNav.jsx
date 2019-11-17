@@ -29,7 +29,7 @@ class MobileNav extends Component {
                                 {this.props.user ?
                                     <div>
                                         <li
-                                            onClick={this.props.toggleMobileNav}
+                                            onClick={this.props.handleLogOut}
                                         >Log Out</li>
                                     </div>
                                     :
@@ -37,6 +37,7 @@ class MobileNav extends Component {
                                         <li
                                             onClick={this.props.toggleSignUpModal}
                                             signUpModalIsOpen={this.props.signUpModalIsOpen}
+
                                         >Sign Up</li>
                                         <li
                                             onClick={this.props.toggleLogInModal}

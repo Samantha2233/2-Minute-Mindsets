@@ -47,7 +47,6 @@ class App extends Component {
       mobileNavIsOpen: false,
       userDropdownIsOpen: false,
       thankYouModalIsOpen: false,
-      navUpdated: false,
       name: '',
       email: '',
       password: '',
@@ -175,6 +174,7 @@ class App extends Component {
 
   handleEmailSubmission = async newEmailData => {
     const newEmail = await subscriptionService.create(newEmailData);
+    console.log('newEmail from handleEmailSubmission in App', newEmail)
     this.setState(state => ({
       emails: [...state.emails, newEmail],
       thankYouModalIsOpen: true
@@ -193,25 +193,25 @@ class App extends Component {
           user={this.state.user}
           signUpModalIsOpen={this.state.signUpModalIsOpen}
           logInModalIsOpen={this.state.logInModalIsOpen}
-          handleLogOut={this.handleLogOut}
           toggleLogInModal={this.toggleLogInModal}
           toggleSignUpModal={this.toggleSignUpModal}
+          handleLogOut={this.handleLogOut}
           dropdownOpen={this.state.dropdownOpen}
           toggleNavItem={this.toggleNavItem}
           toggleMobileNav={this.toggleMobileNav}
           mobileNavIsOpen={this.state.mobileNavIsOpen}
           toggleUserDropdown={this.toggleUserDropdown}
           userDropdownIsOpen={this.state.userDropdownIsOpen}
-          navUpdated={this.state.navUpdated}
         />
         <MobileNav
+          user={this.state.user}
           toggleMobileNav={this.toggleMobileNav}
           mobileNavIsOpen={this.state.mobileNavIsOpen}
-          user={this.state.user}
-          toggleSignUpModal={this.toggleSignUpModal}
           signUpModalIsOpen={this.state.signUpModalIsOpen}
-          toggleLogInModal={this.toggleLogInModal}
           logInModalIsOpen={this.state.logInModalIsOpen}
+          toggleLogInModal={this.toggleLogInModal}
+          toggleSignUpModal={this.toggleSignUpModal}
+          handleLogOut={this.handleLogOut}
         />
         <SignUp
           user={this.state.user}
