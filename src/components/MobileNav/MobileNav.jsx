@@ -25,11 +25,31 @@ class MobileNav extends Component {
                                     href='#subscribe'
                                     onClick={this.props.toggleMobileNav}
                                 >Subscribe</a></li>
+                                <hr></hr>
+                                {this.props.user ?
+                                    <div>
+                                        <li
+                                            onClick={this.props.toggleMobileNav}
+                                        >Log Out</li>
+                                    </div>
+                                    :
+                                    <div>
+                                        <li
+                                            onClick={this.props.toggleSignUpModal}
+                                            signUpModalIsOpen={this.props.signUpModalIsOpen}
+                                        >Sign Up</li>
+                                        <li
+                                            onClick={this.props.toggleLogInModal}
+                                            logInModalIsOpen={this.props.logInModalIsOpen}
+                                        >Log In</li>
+                                    </div>
+                                }
                             </ul>
                         </div>
                         :
                         null
                 }
+
             </>
         )
     }

@@ -29,7 +29,8 @@ class App extends Component {
     super();
     this.state = {
       ...this.getInitialState(),
-      ...this.listVideos()
+      ...this.listVideos(),
+
     }
   }
 
@@ -45,7 +46,13 @@ class App extends Component {
       dropdownOpen: false,
       mobileNavIsOpen: false,
       userDropdownIsOpen: false,
-      thankYouModalIsOpen: false
+      thankYouModalIsOpen: false,
+      navUpdated: false,
+      name: '',
+      email: '',
+      password: '',
+      passwordConf: '',
+      message: ''
     }
   }
 
@@ -84,7 +91,6 @@ class App extends Component {
 
   //      S U B S C R I P T I O N   T H A N K   Y O U  
   toggleThankYouModal = () => {
-    console.log('toggleThankYouModal in App called')
     this.setState({
       thankYouModalIsOpen: !this.state.thankYouModalIsOpen
     })
@@ -98,10 +104,34 @@ class App extends Component {
   }
 
   handleSignUpOrLogIn = () => {
-    console.log('handleSignUpOrLogin called');
-    this.setState({ user: userService.getUser() });
-    console.log(this.state.user);
-    this.forceUpdate();
+    this.setState({
+      user: userService.getUser()
+    });
+  }
+
+  updateMessage = (msg) => {
+    this.setState({ message: msg });
+  }
+
+  handleChange = (e) => {
+    this.updateMessage('');
+    this.setState({
+      [e.target.name]: e.target.value
+    });
+  }
+
+  handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      await userService.signup(this.state);
+      this.props.handleSignUpOrLogin();
+    } catch (err) {
+      this.updateMessage(err.message);
+    }
+  }
+
+  isFormInvalid = () => {
+    return !(this.state.name && this.state.email && this.state.password === this.state.passwordConf);
   }
 
 
@@ -114,23 +144,19 @@ class App extends Component {
   //  List latest channel videos from Youtube API onto home page
   listVideos = async () => {
     let videoList = await videoService.getChannelVideos();
-    console.log('videoList on App', videoList);
     this.setState({
       videoList: videoList
     });
   }
 
   handlePlayVideo = async (videoId) => {
-    console.log(videoId);
     this.setState({
       videoPlayerIsOpen: true,
       videoId: videoId
     });
-    console.log(videoId);
   }
 
   toggleVideoPlayer = () => {
-    console.log('toggleVideoPlayer in App called')
     this.setState({
       videoPlayerIsOpen: !this.state.videoPlayerIsOpen
     })
@@ -149,7 +175,6 @@ class App extends Component {
 
   handleEmailSubmission = async newEmailData => {
     const newEmail = await subscriptionService.create(newEmailData);
-    console.log('newEmail from handleEmailSubmission in App', newEmail)
     this.setState(state => ({
       emails: [...state.emails, newEmail],
       thankYouModalIsOpen: true
@@ -177,16 +202,31 @@ class App extends Component {
           mobileNavIsOpen={this.state.mobileNavIsOpen}
           toggleUserDropdown={this.toggleUserDropdown}
           userDropdownIsOpen={this.state.userDropdownIsOpen}
+          navUpdated={this.state.navUpdated}
         />
         <MobileNav
           toggleMobileNav={this.toggleMobileNav}
           mobileNavIsOpen={this.state.mobileNavIsOpen}
+          user={this.state.user}
+          toggleSignUpModal={this.toggleSignUpModal}
+          signUpModalIsOpen={this.state.signUpModalIsOpen}
+          toggleLogInModal={this.toggleLogInModal}
+          logInModalIsOpen={this.state.logInModalIsOpen}
         />
         <SignUp
           user={this.state.user}
           toggleSignUpModal={this.toggleSignUpModal}
           signUpModalIsOpen={this.state.signUpModalIsOpen}
           handleSignUpOrLogIn={this.handleSignUpOrLogIn}
+          updateMessage={this.updateMessage}
+          handleChange={this.handleChange}
+          handleSubmit={this.handleSubmit}
+          isFormInvalid={this.isFormInvalid}
+          name={this.state.name}
+          email={this.state.email}
+          password={this.state.password}
+          passwordConf={this.state.passwordConf}
+          message={this.state.message}
         />
         <LogIn
           toggleLogInModal={this.toggleLogInModal}

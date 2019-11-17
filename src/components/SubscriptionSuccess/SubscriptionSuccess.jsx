@@ -17,7 +17,7 @@ const SubscriptionSuccess = (props) => {
                     </Button>
                 </div>
                 <div className='thankyou-body'>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    You now have access to a guide of simple wisdom that, with a little effort and consistency, will help you build habits that will lead you to living a more intentional life.
                 </div>
 
                 <img id='lights-in-hand' src='../../../images/lights-in-hand.jpeg' alt='Shot by Diego PH' />

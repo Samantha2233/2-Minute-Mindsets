@@ -3,7 +3,6 @@ import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem, Button } from 're
 import './Nav.scss';
 
 class Nav extends Component {
-
     render() {
         return (
             <div className='nav' >
