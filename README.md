@@ -1,6 +1,6 @@
-#2 Minute Mindsets
+# 2 Minute Mindsets
 Nathan Czubaj shares tips and tricks to live a more intentional and meaningful life in his 2 minutes videos. The purpose of this website is to expose his videos and log subscriber's emails. 
-I've used the YouTube API to fetch his latest videos and connected a MongoDB database to catch his subscribers. In the future, he's like to add courses to his website so JSON web token authentication is set up for that.
+I've used the YouTube API to fetch his latest videos and connected a MongoDB database to catch his subscribers. In the future, he'd like to add courses to his website so JSON web token authentication is set up for that.
 
 [2 Minutes Mindsets Website](https://twominmind.herokuapp.com/)
 
