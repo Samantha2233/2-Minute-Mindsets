@@ -4,9 +4,9 @@ I've used the YouTube API to fetch his latest videos and connected a MongoDB dat
 
 [2 Minutes Mindsets Website](https://twominmind.herokuapp.com/)
 
-<img src="/public/images/Screenshots/Landing.png" alt="Landing Page Screenshot">
-<img src="/public/images/Screenshots/LatestVids.png" alt="Latest Videos Screenshot">
-<img src="/public/images/Screenshots/VideoPlayer.png" alt="Video Player Screenshot">
+<img src="/public/images/screenshots/Landing.png" alt="Landing Page Screenshot">
+<img src="/public/images/screenshots/LatestVids.png" alt="Latest Videos Screenshot">
+<img src="/public/images/screenshots/VideoPlayer.png" alt="Video Player Screenshot">
 
 
 ### Technologies
