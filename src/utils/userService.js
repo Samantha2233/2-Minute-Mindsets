@@ -3,8 +3,6 @@ import tokenService from './tokenService';
 const BASE_URL = '/api/users/';
 
 function signup(user) {
-    console.log('signup in userService called');
-    console.log('user in userService', user);
     return fetch(BASE_URL + 'signup', {
         method: 'POST',
         headers: new Headers({ 'Content-Type': 'application/json' }),

@@ -1,9 +1,43 @@
 import React, { Component } from 'react';
+import userService from '../../utils/userService';
 import { Button, Modal, ModalHeader, ModalBody } from 'reactstrap';
 import { Form, Input } from 'reactstrap';
 import './SignUp.scss';
 
 class SignUp extends Component {
+    state = {
+        name: '',
+        email: '',
+        password: '',
+        passwordConf: '',
+        message: ''
+    }
+
+    updateMessage = (msg) => {
+        this.setState({ message: msg });
+    }
+
+    handleChange = (e) => {
+        this.updateMessage('');
+        this.setState({
+            [e.target.name]: e.target.value
+        });
+    }
+
+    handleSubmit = async (e) => {
+        console.log('handleSubmit called');
+        e.preventDefault();
+        try {
+            await userService.signup(this.state);
+            this.props.handleSignUpOrLogin();
+        } catch (err) {
+            this.updateMessage(err.message);
+        }
+    }
+
+    isFormInvalid() {
+        return !(this.state.name && this.state.email && this.state.password === this.state.passwordConf);
+    }
     render() {
         return (
             <div>
@@ -16,15 +50,15 @@ class SignUp extends Component {
 
                         </ModalHeader>
                     <ModalBody className='sign-up-form'>
-                        <Form onSubmit={this.props.handleSubmit}>
+                        <Form onSubmit={this.handleSubmit}>
                             <div>
                                 <div>
                                     <Input
                                         type='text'
                                         placeholder='Name'
-                                        value={this.props.name}
+                                        value={this.state.name}
                                         name='name'
-                                        onChange={this.props.handleChange}
+                                        onChange={this.handleChange}
                                     />
                                 </div>
                             </div>
@@ -33,9 +67,9 @@ class SignUp extends Component {
                                     <Input
                                         type='email'
                                         placeholder='Email'
-                                        value={this.props.email}
+                                        value={this.state.email}
                                         name='email'
-                                        onChange={this.props.handleChange}
+                                        onChange={this.handleChange}
                                     />
                                 </div>
                             </div>
@@ -44,9 +78,9 @@ class SignUp extends Component {
                                     <Input
                                         type='password'
                                         placeholder='Password'
-                                        value={this.props.password}
+                                        value={this.state.password}
                                         name='password'
-                                        onChange={this.props.handleChange}
+                                        onChange={this.handleChange}
                                     />
                                 </div>
                             </div>
@@ -55,9 +89,9 @@ class SignUp extends Component {
                                     <Input
                                         type='password'
                                         placeholder='Confirm Password'
-                                        value={this.props.passwordConf}
+                                        value={this.state.passwordConf}
                                         name='passwordConf'
-                                        onChange={this.props.handleChange}
+                                        onChange={this.handleChange}
                                     />
                                 </div>
                             </div>
@@ -65,8 +99,8 @@ class SignUp extends Component {
                                 <Button
                                     type='submit'
                                     outline color='primary'
-                                    disabled={this.props.isFormInvalid()}
-                                    handleSubmit={this.props.handleSubmit}
+                                    disabled={this.isFormInvalid()}
+                                    handleSubmit={this.handleSubmit}
                                     onClick={this.props.toggleSignUpModal}
                                     isOpen={this.props.signUpModalIsOpen}
                                 >Sign Up</Button>
@@ -77,7 +111,7 @@ class SignUp extends Component {
                                 >Cancel</Button>
                             </div>
                         </Form>
-                        <p>{this.props.message}</p>
+                        <p>{this.state.message}</p>
                     </ModalBody>
                 </Modal>
             </div>

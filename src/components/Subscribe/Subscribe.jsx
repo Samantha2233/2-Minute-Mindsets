@@ -10,10 +10,13 @@ class Subscribe extends Component {
         }
     }
 
-    handleSubmit = e => {
+    handleSubmit = async e => {
         e.preventDefault();
-        this.props.handleEmailSubmission(this.state.formData);
-        e.target.reset();
+        await this.props.handleEmailSubmission(this.state.formData);
+        // Clear formm if successful 
+        this.setState(state => ({
+            formData: { name: '', email: '' }
+        }))
     };
 
     handleChange = e => {

@@ -47,11 +47,6 @@ class App extends Component {
       mobileNavIsOpen: false,
       userDropdownIsOpen: false,
       thankYouModalIsOpen: false,
-      name: '',
-      email: '',
-      password: '',
-      passwordConf: '',
-      message: ''
     }
   }
 
@@ -106,31 +101,6 @@ class App extends Component {
     this.setState({
       user: userService.getUser()
     });
-  }
-
-  updateMessage = (msg) => {
-    this.setState({ message: msg });
-  }
-
-  handleChange = (e) => {
-    this.updateMessage('');
-    this.setState({
-      [e.target.name]: e.target.value
-    });
-  }
-
-  handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      await userService.signup(this.state);
-      this.props.handleSignUpOrLogin();
-    } catch (err) {
-      this.updateMessage(err.message);
-    }
-  }
-
-  isFormInvalid = () => {
-    return !(this.state.name && this.state.email && this.state.password === this.state.passwordConf);
   }
 
 
@@ -218,15 +188,6 @@ class App extends Component {
           toggleSignUpModal={this.toggleSignUpModal}
           signUpModalIsOpen={this.state.signUpModalIsOpen}
           handleSignUpOrLogIn={this.handleSignUpOrLogIn}
-          updateMessage={this.updateMessage}
-          handleChange={this.handleChange}
-          handleSubmit={this.handleSubmit}
-          isFormInvalid={this.isFormInvalid}
-          name={this.state.name}
-          email={this.state.email}
-          password={this.state.password}
-          passwordConf={this.state.passwordConf}
-          message={this.state.message}
         />
         <LogIn
           toggleLogInModal={this.toggleLogInModal}
@@ -239,11 +200,11 @@ class App extends Component {
           handlePlayVideo={this.handlePlayVideo}
           videoPlayerIsOpen={this.state.videoPlayerIsOpen}
         />
-        <VideoList
+        {/*<VideoList
           videoList={this.state.videoList}
           listVideos={this.listVideos}
           handlePlayVideo={this.handlePlayVideo}
-        />
+        /> */}
         <About />
 
         <Videos

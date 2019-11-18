@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Button } from 'reactstrap';
 // import { Link } from 'react-router-dom';
 import './Videos.scss';
 
@@ -43,10 +42,10 @@ class Videos extends Component {
                             </>
                         )}
                     <div className='button-box'>
-                        <Button
-                            id="more-videos-btn"
-                            onClick={this.props.listVideos}
-                        >View More Videos</Button>
+                        {/* <Button
+                        //     id="more-videos-btn"
+                        //     onClick={this.props.listVideos}
+                        // >View More Videos</Button>*/}
                     </div>
                 </div>
             </div>
