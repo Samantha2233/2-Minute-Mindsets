@@ -20,6 +20,7 @@ class Nav extends Component {
                             </DropdownMenu>
                         </Dropdown>
                         <li><a href='#subscribe'>Subscribe</a></li>
+
                     </ul>
                 </div>
                 <div id="nav-right">

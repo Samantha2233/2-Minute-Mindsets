@@ -16,7 +16,7 @@ import LogIn from '../../components/LogIn/LogIn';
 import Landing from '../../components/Landing/Landing';
 import About from '../../components/About/About';
 import FeatureVideo from '../../components/FeatureVideo/FeatureVideo';
-import VideoList from '../../components/VideoList/VideoList';
+// import VideoList from '../../components/VideoList/VideoList';
 import Videos from '../../components/Videos/Videos';
 import VideoPlayer from '../../components/VideoPlayer/VideoPlayer';
 import Subscribe from '../../components/Subscribe/Subscribe';
@@ -47,6 +47,7 @@ class App extends Component {
       mobileNavIsOpen: false,
       userDropdownIsOpen: false,
       thankYouModalIsOpen: false,
+      updateNav: false
     }
   }
 
@@ -98,9 +99,12 @@ class App extends Component {
   }
 
   handleSignUpOrLogIn = () => {
+    console.log('handleSignup or login called in app');
     this.setState({
       user: userService.getUser()
-    });
+    },
+      () => Nav.forceUpdate()
+    );
   }
 
 
