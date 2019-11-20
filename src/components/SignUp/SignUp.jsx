@@ -29,9 +29,10 @@ class SignUp extends Component {
         e.preventDefault();
         try {
             await userService.signup(this.state);
-            this.props.handleSignUpOrLogin();
         } catch (err) {
             this.updateMessage(err.message);
+        } finally {
+            this.props.handleSignUpOrLogIn();
         }
     }
 

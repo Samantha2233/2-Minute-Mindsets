@@ -102,8 +102,7 @@ class App extends Component {
     console.log('handleSignup or login called in app');
     this.setState({
       user: userService.getUser()
-    },
-      () => Nav.forceUpdate()
+    }
     );
   }
 
