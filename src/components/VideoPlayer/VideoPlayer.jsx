@@ -21,8 +21,8 @@ class VideoPlayer extends Component {
                     <ReactPlayer
                         url={`https://www.youtube.com/watch?v=${this.props.videoId} `}
                         controls={true}
-                        width={900}
-                        height={550}
+                        width='100%'
+                        height='100%'
                     />
                 </Modal>
 

@@ -116,6 +116,7 @@ class App extends Component {
   //  List latest channel videos from Youtube API onto home page
   listVideos = async () => {
     let videoList = await videoService.getChannelVideos();
+    console.log(videoList)
     this.setState({
       videoList: videoList
     });

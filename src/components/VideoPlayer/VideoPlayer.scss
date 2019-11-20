@@ -1,7 +1,57 @@
 #video-player-modal {
-    max-width: 950px;
-    height: 550px;
     background: transparent;
+    max-width: 960px;
+    min-height: 560px;
+    display: flex;
+}
+
+@media only screen and (max-width: 970px) {
+    #video-player-modal {
+        min-height: 500px
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    #video-player-modal {
+        min-height: 450px
+    }
+}
+
+@media only screen and (max-width: 700px) {
+    #video-player-modal {
+        min-height: 425px
+    }
+}
+
+@media only screen and (max-width: 650px) {
+    #video-player-modal {
+        min-height: 400px
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    #video-player-modal {
+        min-height: 350px
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    #video-player-modal {
+        min-height: 300px
+    }
+}
+
+@media only screen and (max-width: 420px) {
+    #video-player-modal {
+        min-height: 250px
+    }
+}
+
+@media only screen and (max-width: 375px) {
+    #video-player-modal {
+        max-width: 100%;
+        min-height: 230px
+    }
 }
 
 .modal-content {
