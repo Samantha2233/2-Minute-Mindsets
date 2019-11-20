@@ -25,7 +25,7 @@ class Videos extends Component {
                                                 className='video-img'
                                             ></img>
                                             <p>
-                                                A small description of the video from youtube... sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                                                {video.snippet.description}
                                             </p>
                                         </div>
                                         :
