@@ -1,51 +1,44 @@
 .black-background {
     background-color: black;
     width: 100%;
-    height: 90vh;
+    height: 80vh;
 }
 
 #subscribe {
     position: relative;
-
     .box {
         width: 95%;
         max-width: 500px;
         position: absolute;
-        // display: block;
         left: 60%;
         margin-left: -250px;
-        margin-top: 160px;
+        margin-top: 120px;
+        padding-top: 50px;
     }
-
     img {
         padding-top: 20px;
         width: 40%;
         margin-left: -15%;
     }
-
     h2 {
         font-weight: 900;
         color: white;
         letter-spacing: .05em;
         font-size: 35px;
     }
-    
     p {
         color: var(--blue);
-        
     }
 }
 
 #subscribe-btn {
     background-color: aliceblue;
     color: black;
-
     &:hover {
         background-color: var(--lightBlue);
         color: var(--purple);
     }
 }
-
 
 @media only screen and (max-width: 650px) {
     #subscribe {
@@ -55,15 +48,12 @@
             margin-top: 190px;
             width: 90%;
         }
-    
         h2 {
             font-size: 20px;
         }
-
         p {
             width: 70%;
         }
-
         img {
             padding-top: 20px;
             padding-bottom: 50px;
@@ -73,7 +63,10 @@
     }
 }
 
-@media only screen and (max-width: 450px) {
+@media only screen and (max-width: 400px) {
+    .black-background {
+        height: 100vh;
+    }
     #subscribe {
         h2 {
             font-size: 17px;
@@ -82,6 +75,4 @@
             width: 90%;
         }
     }
-
 }
-
