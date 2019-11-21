@@ -7,8 +7,13 @@ import './LogIn.scss';
 class LogIn extends Component {
     state = {
         email: '',
-        password: ''
+        password: '',
+        message: ''
     };
+
+    updateMessage = (msg) => {
+        this.setState({ message: msg })
+    }
 
     handleChange = (e) => {
         this.setState({
@@ -22,13 +27,16 @@ class LogIn extends Component {
             await userService.login(this.state);
             // When successfully signed up show dashboard (root)
             this.props.handleSignUpOrLogIn();
-            // this.props.history.push('/');
         } catch (err) {
             // Invalid user data
             // TODO: code modal instead of alert
-            // this.props.updateMessage(err.message);
-            alert('Invalid credentials!');
+            this.updateMessage(err.message);
+            // alert('Invalid credentials!');
         }
+    }
+
+    isFormInvalid() {
+        return !(this.state.email && this.state.password);
     }
 
     render() {
@@ -71,6 +79,7 @@ class LogIn extends Component {
                                     <Button
                                         type='submit'
                                         outline color='primary'
+                                        disabled={this.isFormInvalid()}
                                         handleSubmit={this.handleSubmit}
                                         onClick={this.props.toggleLogInModal}
                                         isOpen={this.props.logInModalIsOpen}
@@ -82,7 +91,7 @@ class LogIn extends Component {
                                     >Cancel</Button>
                                 </div>
                             </Form>
-                            <p>{this.state.message}</p>
+                            <p className='error'>{this.state.message}</p>
                         </ModalBody>
                     </Modal>
                 </Container>

@@ -40,7 +40,7 @@ function login(creds) {
         .then(res => {
             // Valid login if we have a status of 2xx (res.ok)
             if (res.ok) return res.json();
-            throw new Error('Bad Credentials!');
+            throw new Error('The username or password you entered is incorrect.');
         })
         .then(({ token }) => tokenService.setToken(token));
 }

@@ -112,7 +112,7 @@ class SignUp extends Component {
                                 >Cancel</Button>
                             </div>
                         </Form>
-                        <p>{this.state.message}</p>
+                        <p className='error'>{this.state.message}</p>
                     </ModalBody>
                 </Modal>
             </div>
