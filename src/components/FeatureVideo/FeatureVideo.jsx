@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Button } from 'reactstrap';
 import './FeatureVideo.scss';
 
 class FeatureVideo extends Component {
@@ -15,29 +14,36 @@ class FeatureVideo extends Component {
                             <div key={idx}>
                                 {idx <= 0 ?
                                     <div>
-
-                                        <div id='feature-content-box'>
-                                            <Button
-                                                id="latest-video-button"
+                                        <div className='overlay'>
+                                            <div className='feature-video-overlay'
                                                 onClick={() => (this.props.handlePlayVideo(video.contentDetails.upload.videoId))}
                                             >
-                                                <i className="fab fa-youtube" id='youtube-icon'></i>
-                                                Watch Latest Video
-                                            </Button>
-                                            <p id="feature-title">{video.snippet.title}</p>
+
+                                                <p
+                                                    id="latest-video-button"
+                                                    onClick={() => (this.props.handlePlayVideo(video.contentDetails.upload.videoId))}
+                                                >
+                                                    Click to watch our latest two minute video :)
+                                            </p>
+
+                                            </div>
+                                            <i className="fab fa-youtube feature-video-youtube-icon"
+                                                onClick={() => (this.props.handlePlayVideo(video.contentDetails.upload.videoId))}
+                                            ></i>
+                                            <img id='feature-img' src={video.snippet.thumbnails.maxres.url} alt='latest video' />
+                                            <img src='../../../images/youtube-logo.png' alt='Youtube icon for play viedo'
+                                                id='youtube-logo'
+                                            />
                                         </div>
 
 
-                                        {/* <div className='overlay'>
-                                            <img id='feature-img' src={video.snippet.thumbnails.medium.url} alt='' />
-                                        </div> */}
-                                        {/* // onClick={() => (this.props.handlePlayVideo(video.items[0].id))} */}
 
 
 
-                                        <img src='../../../images/youtube-logo.png' alt='Youtube icon for play viedo'
-                                            id='youtube-logo'
-                                        />
+
+
+
+
                                     </div>
                                     :
                                     <>

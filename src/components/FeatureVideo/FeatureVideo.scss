@@ -1,31 +1,56 @@
 .feature-box {
     width: 600px;
-    height: 360px;
+    height: 343px;
     background-color: black;
     position: absolute;
     left: 5%;
-    top: 300px;
+    top: 230px;
     display: flex;
 }
 
 .overlay {
     width: 100%;
     height: 100%;
-    background-color: black;
-    opacity: .3;
+    background-color: black; // opacity: ;
     position: absolute;
     top: 0;
+    border: 5px solid black;
+}
+
+.feature-video-overlay {
+    background-color: rgba(255, 255, 255, .3);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    opacity: 0;
+    &:hover {
+        opacity: 1;
+    }
 }
 
 #latest-video-button {
     background-color: white;
     border: 0;
-    margin-bottom: 15px;
     color: black;
     border: 2px solid white;
+    z-index: 1;
+    text-align: center;
     &:hover {
         border: 2px solid var(--lightBlue);
     }
+}
+
+.feature-video-youtube-icon {
+    position: absolute;
+    top: 50%;
+    margin-top: -16px;
+    left: 50%;
+    margin-left: -16px;
+    color: red;
+    font-size: 40px; // background-color: aliceblue;
+    padding: 0 2px;
+    border-radius: 5px;
 }
 
 #feature-img {
@@ -42,11 +67,6 @@
     margin-left: 20%;
 }
 
-#feature-title {
-    color: white;
-    width: 300px;
-}
-
 @media only screen and (max-width: 650px) {
     .feature-box {
         width: 90%;
@@ -57,9 +77,6 @@
         justify-content: flex-start;
         width: 100%;
         margin-left: 3%;
-    }
-    #feature-title {
-        width: 90%;
     }
 }
 
@@ -72,6 +89,6 @@
 #youtube-logo {
     width: 75px;
     position: absolute;
-    bottom: 10px;
+    bottom: 25px;
     right: 10px
 }
