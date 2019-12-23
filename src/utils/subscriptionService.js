@@ -1,5 +1,3 @@
-
-
 const BASE_URL = '/api/subscriptions';
 
 export default {

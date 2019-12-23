@@ -19,13 +19,13 @@
           grid-row: 2;
       }
       #h1 {
-          color: black;
+          color: var(--purple);
           margin-left: 10vmin;
           margin-bottom: 0;
           font-weight: 700;
       }
       #subliner {
-          color: var(--purple);
+          color: black;
           margin-top: 0;
           padding-left: 10vmin;
           font-weight: 500;
