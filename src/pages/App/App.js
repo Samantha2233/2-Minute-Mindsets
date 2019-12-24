@@ -18,6 +18,7 @@ import About from '../../components/About/About';
 import FeatureVideo from '../../components/FeatureVideo/FeatureVideo';
 // import VideoList from '../../components/VideoList/VideoList';
 import Videos from '../../components/Videos/Videos';
+import VideosModal from '../../components/VideosModal/VideosModal';
 import VideoPlayer from '../../components/VideoPlayer/VideoPlayer';
 import Subscribe from '../../components/Subscribe/Subscribe';
 import SubscriptionSuccess from '../../components/SubscriptionSuccess/SubscriptionSuccess';
@@ -30,7 +31,6 @@ class App extends Component {
     this.state = {
       ...this.getInitialState(),
       ...this.listVideos(),
-
     }
   }
 
@@ -47,7 +47,8 @@ class App extends Component {
       mobileNavIsOpen: false,
       userDropdownIsOpen: false,
       thankYouModalIsOpen: false,
-      updateNav: false
+      updateNav: false,
+      videosModalIsOpen: false,
     }
   }
 
@@ -116,7 +117,9 @@ class App extends Component {
   //  List latest channel videos from Youtube API onto home page
   listVideos = async () => {
     let videoList = await videoService.getChannelVideos();
-    console.log(videoList)
+    console.log('videoList1', videoList);
+    // let videoListFiltered = videoList.items.filter(video => !video.snippet.title.includes('Principle'))
+    console.log('videoList2', videoList);
     this.setState({
       videoList: videoList
     });
@@ -132,9 +135,14 @@ class App extends Component {
   toggleVideoPlayer = () => {
     this.setState({
       videoPlayerIsOpen: !this.state.videoPlayerIsOpen
-    })
+    });
   }
 
+  toggleVideosModal = () => {
+    this.setState({
+      videosModalIsOpen: !this.state.videosModalIsOpen
+    });
+  }
 
 
 
@@ -208,10 +216,19 @@ class App extends Component {
           videoList={this.state.videoList}
           listVideos={this.listVideos}
           handlePlayVideo={this.handlePlayVideo}
-        /> */}
+        />*/}
         <About />
 
         <Videos
+          videoList={this.state.videoList}
+          listVideos={this.listVideos}
+          handlePlayVideo={this.handlePlayVideo}
+          videosModalIsOpen={this.state.videosModalIsOpen}
+          toggleVideosModal={this.toggleVideosModal}
+        />
+        <VideosModal
+          videosModalIsOpen={this.state.videosModalIsOpen}
+          toggleVideosModal={this.toggleVideosModal}
           videoList={this.state.videoList}
           listVideos={this.listVideos}
           handlePlayVideo={this.handlePlayVideo}
@@ -229,7 +246,7 @@ class App extends Component {
           thankYouModalIsOpen={this.state.thankYouModalIsOpen}
           toggleThankYouModal={this.toggleThankYouModal}
         />
-      </div >
+      </div>
     );
   }
 }

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-// import { Link } from 'react-router-dom';
+import { Button } from 'reactstrap';
 import './Videos.scss';
 
 class Videos extends Component {
@@ -29,27 +29,28 @@ class Videos extends Component {
                                             </p>
                                         </div>
                                         :
-                                        <>
-                                        </>
+                                        <div>
+                                        </div>
                                     }
                                 </div>
 
                             );
                         })
                     ) : (
-                            <>
+                            <div>
                                 {/* //TODO: Button to load videos if failed */}
-                            </>
+                            </div>
                         )}
                     <div className='button-box'>
-                        {/* <Button
-                        //     id="more-videos-btn"
-                        //     onClick={this.props.listVideos}
-                        // >View More Videos</Button>*/}
+                        <Button
+                            videosModalIsOpen={this.props.videosModalIsOpen}
+                            onClick={this.props.toggleVideosModal}
+                            id="more-videos-btn"
+                        >View More Videos</Button>
                     </div>
                 </div>
             </div>
-        );
+        )
     }
 }
 

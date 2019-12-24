@@ -2,9 +2,6 @@ import React, { Component } from 'react';
 import './FeatureVideo.scss';
 
 class FeatureVideo extends Component {
-
-
-
     render() {
         return (
             <div className='feature-box'>

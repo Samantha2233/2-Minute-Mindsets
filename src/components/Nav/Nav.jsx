@@ -45,7 +45,6 @@ class Nav extends Component {
 
                     {this.props.user ?
                         <Dropdown
-
                             isOpen={this.props.userDropdownIsOpen}
                             toggle={this.props.toggleUserDropdown}
                         >
@@ -69,13 +68,13 @@ class Nav extends Component {
                                 signUpModalIsOpen={this.props.signUpModalIsOpen}
                                 id="sign-up-button"
                             >Sign Up
-                        </Button>
+                            </Button>
                             <Button
                                 onClick={this.props.toggleLogInModal}
                                 logInModalIsOpen={this.props.logInModalIsOpen}
                                 id="log-in-button"
                             >Log In
-                        </Button>
+                            </Button>
                         </div>
                     }
                 </div>

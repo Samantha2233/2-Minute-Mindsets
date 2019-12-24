@@ -1,0 +1,16 @@
+#videos-modal {
+  width: 90%;
+  background-color: white;
+  max-width: 100%;
+  h3 {
+    margin-left: 100px;
+  }
+  p {
+    color: var(--purple);
+    width: 310px;
+  }
+  .modal-dialog {
+    width: 100%;
+    max-width: 100%;
+  }
+}
