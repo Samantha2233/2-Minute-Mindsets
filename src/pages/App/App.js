@@ -49,6 +49,8 @@ class App extends Component {
       thankYouModalIsOpen: false,
       updateNav: false,
       videosModalIsOpen: false,
+      viewDropdownOpen: false,
+      viewThumbnail: true
     }
   }
 
@@ -118,11 +120,20 @@ class App extends Component {
   listVideos = async () => {
     let videoList = await videoService.getChannelVideos();
     console.log('videoList1', videoList);
-    // let videoListFiltered = videoList.items.filter(video => !video.snippet.title.includes('Principle'))
-    console.log('videoList2', videoList);
-    this.setState({
-      videoList: videoList
+    // Filter out Dale Carnegie Principle Videos
+    let filteredVideoList = videoList.items.filter(video => {
+      return !video.snippet.title.includes('Principle')
     });
+    console.log('videoList2', filteredVideoList);
+    this.setState({
+      videoList: filteredVideoList
+    });
+  }
+
+  toggleViewDropdown = () => {
+    this.setState({
+      viewDropdownOpen: !this.state.viewDropdownOpen
+    })
   }
 
   handlePlayVideo = async (videoId) => {
@@ -142,6 +153,12 @@ class App extends Component {
     this.setState({
       videosModalIsOpen: !this.state.videosModalIsOpen
     });
+  }
+
+  toggleViewState = () => {
+    this.setState({
+      viewThumbnail: !this.state.viewThumbnail
+    })
   }
 
 
@@ -225,6 +242,11 @@ class App extends Component {
           handlePlayVideo={this.handlePlayVideo}
           videosModalIsOpen={this.state.videosModalIsOpen}
           toggleVideosModal={this.toggleVideosModal}
+          viewDropdownOpen={this.state.viewDropdownOpen}
+          toggleViewDropdown={this.toggleViewDropdown}
+          viewThumbnail={this.state.viewThumbnail}
+          toggleViewState={this.toggleViewState}
+
         />
         <VideosModal
           videosModalIsOpen={this.state.videosModalIsOpen}
