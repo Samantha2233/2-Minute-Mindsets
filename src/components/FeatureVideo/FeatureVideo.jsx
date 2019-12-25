@@ -5,8 +5,8 @@ class FeatureVideo extends Component {
     render() {
         return (
             <div className='feature-box'>
-                {this.props.videoList.items ? (
-                    this.props.videoList.items.map((video, idx) => {
+                {this.props.videoList ? (
+                    this.props.videoList.map((video, idx) => {
                         return (
                             <div key={idx}>
                                 {idx <= 0 ?

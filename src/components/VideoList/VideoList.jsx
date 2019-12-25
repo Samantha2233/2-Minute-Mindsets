@@ -5,8 +5,8 @@ const VideoList = (props) => {
     return (
         <div id='video-list-box'>
             <h3>More Videos</h3>
-            {props.videoList.items ? (
-                props.videoList.items.map((video, idx) => {
+            {props.videoList ? (
+                props.videoList.map((video, idx) => {
                     return (
                         <div key={idx}>
                             {idx <= 10 ?

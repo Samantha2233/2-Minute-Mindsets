@@ -20,8 +20,8 @@ class VideosModal extends Component {
           </Button>
 
           <div className='videos-box'>
-            {this.props.videoList.items ? (
-              this.props.videoList.items.map((video, idx) => {
+            {this.props.videoList ? (
+              this.props.videoList.map((video, idx) => {
                 return (
                   <div key={idx}>
                     <div className='video'>
