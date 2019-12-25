@@ -2,11 +2,12 @@
     background: white;
     width: 100vw;
     height: 100vh;
-    z-index: 9; // display: none;
+    z-index: 9;
     position: fixed;
     margin-top: 3em;
     ul {
         padding-top: 50px;
+        padding-left: 0;
     }
     li {
         list-style: none;
@@ -19,5 +20,16 @@
     a {
         color: var(--purple);
         text-decoration: none;
+    }
+}
+
+#mobile-nav-icon-box {
+    margin-top: 50px;
+    display: flex;
+    justify-content: space-around;
+    margin-left: 25%;
+    margin-right: 25%;
+    i {
+        font-size: 35px;
     }
 }
