@@ -35,7 +35,7 @@ class Subscribe extends Component {
                 <div id='subscribe'>
                     <div className='box'>
                         <h2>Great Living Comes from <br></br>Building the Habit</h2>
-                        <p>Get an email when we post a new 2 minute mindset every week!</p>
+                        <p>Get an email when we post a new 2 minute mindset, as well as free offers!</p>
 
                         <Form id="subscribe-form" onSubmit={this.handleSubmit}>
                             <FormGroup>
