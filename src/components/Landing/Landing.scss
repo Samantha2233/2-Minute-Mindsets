@@ -19,13 +19,13 @@
           grid-row: 2;
       }
       #h1 {
-          color: var(--purple);
+          color: white;
           margin-left: 10vmin;
           margin-bottom: 0;
           font-weight: 700;
       }
       #subliner {
-          color: black;
+          color: var(--purple);
           margin-top: 0;
           padding-left: 10vmin;
           font-weight: 500;
@@ -36,8 +36,7 @@
               font-size: 7vw;
           }
           #subliner {
-              // margin-left: 10vmin;
-              margin-right: 10vmin; // top: 130px;
+              margin-right: 10vmin;
           }
       }
   }
