@@ -7,7 +7,7 @@
     }
 }
 
-#videos-hdr {
+.videos-hdr {
     display: flex; // justify-content: space-between;
     margin: 0 20% 40px 0;
     h3 {
@@ -25,11 +25,29 @@
     justify-content: center;
 }
 
+.list-view-video {
+    width: 90%;
+    margin: 2px;
+}
+
 .video {
     margin: 10px;
     position: relative;
     p {
         margin-top: 8px;
+    }
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.list-group-item {
+    p {
+        width: 100% !important;
+        color: var(--blue) !important;
+    }
+    &:hover {
+        cursor: pointer;
     }
 }
 
@@ -43,6 +61,10 @@
     &:hover {
         opacity: 1;
     }
+}
+
+.video-list-red {
+    color: red;
 }
 
 .videos-youtube-icon {

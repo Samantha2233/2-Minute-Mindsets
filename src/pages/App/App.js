@@ -246,7 +246,6 @@ class App extends Component {
           toggleViewDropdown={this.toggleViewDropdown}
           viewThumbnail={this.state.viewThumbnail}
           toggleViewState={this.toggleViewState}
-
         />
         <VideosModal
           videosModalIsOpen={this.state.videosModalIsOpen}
@@ -254,6 +253,10 @@ class App extends Component {
           videoList={this.state.videoList}
           listVideos={this.listVideos}
           handlePlayVideo={this.handlePlayVideo}
+          viewDropdownOpen={this.state.viewDropdownOpen}
+          toggleViewDropdown={this.toggleViewDropdown}
+          viewThumbnail={this.state.viewThumbnail}
+          toggleViewState={this.toggleViewState}
         />
         <VideoPlayer
           videoId={this.state.videoId}

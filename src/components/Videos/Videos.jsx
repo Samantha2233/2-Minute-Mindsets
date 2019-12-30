@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import { Button, ButtonDropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
+import { Button, ButtonDropdown, DropdownToggle, DropdownMenu, DropdownItem, ListGroup, ListGroupItem } from 'reactstrap';
 import './Videos.scss';
 
 class Videos extends Component {
     render() {
         return (
             <div id="video-section">
-                <div id='videos-hdr'>
+                <div className='videos-hdr'>
                     <h3>Latest Videos</h3>
                     <ButtonDropdown
                         isOpen={this.props.viewDropdownOpen}
@@ -47,20 +47,24 @@ class Videos extends Component {
                                             </div>
                                         }
                                     </div>
-
                                 );
                             })
                         ) : (
                                 // LIST VIEW
                                 this.props.videoList.map((video, idx) => {
                                     return (
-                                        <div key={idx}>
+                                        <div key={idx} class='list-view-video'>
                                             {idx <= 5 ?
-                                                <div className='list-view-video'>
-                                                    <h2>{video.snippet.title}</h2>
-                                                    <p>
-                                                        {video.snippet.description}
-                                                    </p>
+                                                <div >
+                                                    <ListGroup>
+                                                        <ListGroupItem>
+                                                            <p></p>
+                                                            <h6 onClick={() => (this.props.handlePlayVideo(video.contentDetails.upload.videoId))}><i className="fab fa-youtube video-list-red"> </i> {video.snippet.title}</h6>
+                                                            <p onClick={() => (this.props.handlePlayVideo(video.contentDetails.upload.videoId))}>
+                                                                {video.snippet.description}
+                                                            </p>
+                                                        </ListGroupItem>
+                                                    </ListGroup>
                                                 </div>
                                                 :
                                                 <div>
@@ -70,7 +74,6 @@ class Videos extends Component {
 
                                     );
                                 })
-
                             )
                     ) : (
                             <div>
