@@ -1,10 +1,12 @@
 :root {
   font-size: 100%; // 1rem = 16px
   --purple: #181860;
+  --lightPurple: #b5b5f0;
   --lighterGrey: #ebebeb;
   --blue: #52a9dc;
   --mediumBlue: #66bef1;
   --lightBlue: #a0d5f3;
+  --lighterBlue: #e1f2fc;
   --orange: #f78534;
 }
 
@@ -44,6 +46,10 @@ h1 {
 
 .li {
   font-family: Metropolis, sans-serif;
+}
+
+.modal-dialog {
+  border-radius: 10px;
 }
 
 //  U N I V E R S A L   F O R M   S T Y L E S 
