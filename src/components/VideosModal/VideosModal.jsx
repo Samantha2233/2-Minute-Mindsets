@@ -72,6 +72,11 @@ class VideosModal extends Component {
                 </div>
               )}
           </div>
+          <div className='button-box'>
+            <button id='youtube-btn'>
+              <a href='https://www.youtube.com/channel/UCM9nVV4XuU_xmfMeibrCOoA' target='_blank' rel='noopener noreferrer'>Go to YouTube Channel</a>
+            </button>
+          </div>
         </Modal>
       </div>
     )

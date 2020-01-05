@@ -3,7 +3,17 @@
   background-color: white;
   max-width: 100%;
   h3 {
-    margin-left: 100px;
+    margin-left: 10vmin;
+    font-size: 40px;
+    font-weight: 700;
+  }
+  #youtube-btn {
+    background-color: var(--purple);
+    margin-right: 10vmin;
+    padding: 5px 15px;
+    a {
+      color: white;
+    }
   }
   p {
     color: var(--purple);
@@ -13,13 +23,28 @@
     width: 100%;
     max-width: 100%;
   }
+  .modal-content {
+    top: 80px !important;
+    padding: 10px 0 100px 0;
+  }
+  .videos-modal-hdr {
+    display: flex;
+    position: absolute;
+    top: -40px;
+  }
+  .videos-box {
+    display: flex;
+    justify-content: center;
+  }
 }
 
-.videos-modal-hdr {
-  display: flex;
-}
-
-.modal-content {
-  top: 80px !important;
-  padding: 10px 0 100px 0;
+@media screen and (max-width: 525px) {
+  #videos-modal {
+    h3 {
+      margin-left: 10px;
+    }
+    .videos-box {
+      margin: 20px 2%;
+    }
+  }
 }

@@ -1,19 +1,76 @@
 #video-section {
     padding: 100px 0;
-    background-color: var(--purple);
+    background-color: var(--blue);
     p {
-        color: var(--lightBlue);
-        width: 310px;
+        color: var(--purple);
+        font-weight: 400;
+        .fa-play {
+            font-size: 14px;
+        }
+    }
+    .button-box {
+        padding-top: 0;
+        button {
+            margin-right: 0;
+            margin-bottom: 30px;
+        }
+    }
+}
+
+#video-panel {
+    background-color: aliceblue;
+    margin: 0 10vmin;
+    border-radius: 10px;
+    padding-top: 50px;
+    transition: 1s;
+}
+
+@media screen and (max-width: 750px) {
+    #video-panel {
+        margin: 0 5px;
     }
 }
 
 .videos-hdr {
     display: flex; // justify-content: space-between;
-    margin: 0 20% 40px 0;
+    align-items: center;
+    margin-right: 10vmin;
     h3 {
-        color: aliceblue;
-        margin: 0 20px 0 10%;
+        color: var(--purple);
+        margin: 0 20px 0 10vmin;
         display: inline;
+        font-size: 40px;
+        font-weight: 700;
+        letter-spacing: .05em;
+    }
+    .btn-group,
+    .btn-group.show {
+        display: inline;
+        margin-right: 10vmin;
+        button {
+            background-color: var(--purple);
+            color: white;
+            &:hover {
+                background-color: var(--blue);
+            }
+            div {
+                background-color: var(--purple);
+            }
+        }
+        div {
+            background-color: var(--purple);
+        }
+    }
+}
+
+@media screen and (max-width: 575px) {
+    .videos-hdr {
+        margin: 0;
+        justify-content: space-between;
+        h3 {
+            font-size: 30px;
+            transition: 1s;
+        }
     }
 }
 
@@ -21,18 +78,47 @@
     display: flex;
     flex-wrap: wrap;
     max-width: 1200px;
-    margin: 0 auto;
-    justify-content: center;
+    margin: 20px 10vmin;
 }
 
 .list-view-video {
-    width: 90%;
+    width: 100%;
     margin: 2px;
+    .list-group-item {
+        border: 1px solid var(--purple);
+    }
+}
+
+.nothing {
+    display: none !important;
+    height: 0;
+    margin: 0;
+    width: 0;
+}
+
+.video-div {
+    width: 33%;
+}
+
+@media screen and (max-width: 900px) {
+    .video-div {
+        width: 50%;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .video-div {
+        width: 100%;
+    }
 }
 
 .video {
-    margin: 10px;
+    margin-right: 20px;
     position: relative;
+    img {
+        border: 4px solid darkblue;
+        width: 100%;
+    }
     p {
         margin-top: 8px;
     }
@@ -42,6 +128,10 @@
 }
 
 .list-group-item {
+    padding: 0 2%;
+    h6 {
+        margin: 0;
+    }
     p {
         width: 100% !important;
         color: var(--blue) !important;
@@ -53,8 +143,8 @@
 
 .video-overlay {
     background-color: rgba(255, 255, 255, .3);
-    width: 320px;
-    height: 180px;
+    width: 100%;
+    height: 100%;
     position: absolute;
     top: 0;
     opacity: 0;
@@ -69,7 +159,7 @@
 
 .videos-youtube-icon {
     position: absolute;
-    top: 50%;
+    top: 45%;
     margin-top: -16px;
     left: 50%;
     margin-left: -16px;
@@ -80,12 +170,11 @@
 }
 
 #more-videos-btn {
-    background-color: white;
+    background-color: var(--purple);
     border: 0;
     margin-bottom: 15px;
-    color: black;
-    margin-top: 15px;
-    margin-right: 100px; // color: var(--lightBlue);
+    color: white;
+    margin-right: 5%; // color: var(--lightBlue);
     &:hover {
         background-color: var(--lightBlue);
         color: var(--purple); // border: 2px solid var(--blue);
