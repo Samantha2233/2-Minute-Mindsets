@@ -16,7 +16,7 @@ class Nav extends Component {
                             <DropdownToggle id='resources'>Resources</DropdownToggle>
                             <DropdownMenu>
                                 <DropdownItem><a href='#video-section'>Videos</a></DropdownItem>
-                                <DropdownItem>Transcriptions</DropdownItem>
+                                {/*<DropdownItem>Transcriptions</DropdownItem>*/}
                             </DropdownMenu>
                         </Dropdown>
                         <li><a href='#subscribe'>Subscribe</a></li>
