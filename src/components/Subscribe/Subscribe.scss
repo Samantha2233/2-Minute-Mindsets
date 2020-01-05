@@ -21,10 +21,10 @@
         margin-left: -15%;
     }
     h2 {
-        font-weight: 900;
+        font-weight: 700;
         color: white;
         letter-spacing: .05em;
-        font-size: 35px;
+        font-size: 40px;
     }
     p {
         color: var(--blue);
@@ -45,7 +45,7 @@
     #subscribe {
         .box {
             left: 2%;
-            margin-left: 0;
+            margin-left: 10vmin;
             margin-top: 190px;
             width: 90%;
         }
@@ -60,6 +60,9 @@
             padding-bottom: 50px;
             width: 40%;
             margin-left: 0;
+        }
+        .form-group {
+            width: 80%;
         }
     }
 }
