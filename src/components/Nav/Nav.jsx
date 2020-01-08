@@ -75,9 +75,9 @@ class Nav extends Component {
                                 id="log-in-button"
                             >Log In
                         </Button>
-                            <a href='https://www.facebook.com/2minmind/' target='_blank' rel='noopener noreferrer'><i class="fab fa-facebook-square social-icon"></i></a>
-                            <a href='https://www.linkedin.com/in/nathanczubaj/' target='_blank' rel='noopener noreferrer'><i class="fab fa-linkedin social-icon"></i></a>
-                            <a href='https://www.youtube.com/channel/UCM9nVV4XuU_xmfMeibrCOoA' target='_blank' rel='noopener noreferrer'><i class="fab fa-youtube-square social-icon"></i></a>
+                            <a href='https://www.facebook.com/2minmind/' target='_blank' rel='noopener noreferrer'><i className="fab fa-facebook-square social-icon"></i></a>
+                            <a href='https://www.linkedin.com/in/nathanczubaj/' target='_blank' rel='noopener noreferrer'><i className="fab fa-linkedin social-icon"></i></a>
+                            <a href='https://www.youtube.com/channel/UCM9nVV4XuU_xmfMeibrCOoA' target='_blank' rel='noopener noreferrer'><i className="fab fa-youtube-square social-icon"></i></a>
                         </div>
                     }
                 </div>

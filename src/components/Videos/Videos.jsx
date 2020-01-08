@@ -13,7 +13,7 @@ class Videos extends Component {
                             isOpen={this.props.viewDropdownOpen}
                             toggle={this.props.toggleViewDropdown}
                         >
-                            <DropdownToggle caret size='sm'>View  <i class="fas fa-eye"></i>  </DropdownToggle>
+                            <DropdownToggle caret size='sm'>View  <i className="fas fa-eye"></i>  </DropdownToggle>
                             <DropdownMenu>
                                 <DropdownItem onClick={this.props.viewThumbnail ? this.props.toggleViewState : null}>List</DropdownItem>
                                 <DropdownItem onClick={this.props.viewThumbnail ? null : this.props.toggleViewState}>Thumbnail</DropdownItem>
@@ -31,7 +31,7 @@ class Videos extends Component {
                                         <div key={idx} className='video-div'>
                                             {idx <= 5 ?
                                                 <div className='video'>
-                                                    <div classname='video-img-box'>
+                                                    <div className='video-img-box'>
                                                         <div
                                                             onClick={() => (this.props.handlePlayVideo(video.contentDetails.upload.videoId))}
                                                         >
