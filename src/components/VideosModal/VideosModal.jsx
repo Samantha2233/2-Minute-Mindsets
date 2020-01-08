@@ -23,7 +23,9 @@ class VideosModal extends Component {
           <div className='videos-box'>
             {this.props.videoList ? (
               this.props.viewThumbnail ? (
-                // THUMBNAIL VIEW
+
+
+                //////// THUMBNAIL VIEW
                 this.props.videoList.map((video, idx) => {
                   return (
                     <div key={idx}>
@@ -39,14 +41,16 @@ class VideosModal extends Component {
                           className='video-img'
                         ></img>
                         <p>
-                          {video.snippet.description}
+                          {video.snippet.description.substring(0, 60) + `...`}
                         </p>
                       </div>
                     </div>
                   );
                 })
               ) : (
-                  // LIST VIEW
+
+
+                  ///////// LIST VIEW
                   this.props.videoList.map((video, idx) => {
                     return (
                       <div key={idx} class='list-view-video'>
@@ -56,7 +60,7 @@ class VideosModal extends Component {
                               <p></p>
                               <h6 onClick={() => (this.props.handlePlayVideo(video.contentDetails.upload.videoId))}><i className="fab fa-youtube video-list-red"> </i> {video.snippet.title}</h6>
                               <p onClick={() => (this.props.handlePlayVideo(video.contentDetails.upload.videoId))}>
-                                {video.snippet.description}
+                                {video.snippet.description.substring(0, 60) + '...'}
                               </p>
                             </ListGroupItem>
                           </ListGroup>

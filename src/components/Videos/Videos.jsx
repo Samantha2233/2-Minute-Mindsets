@@ -23,7 +23,9 @@ class Videos extends Component {
                     <div className='videos-box'>
                         {this.props.videoList ? (
                             this.props.viewThumbnail ? (
-                                // THUMBNAIL VIEW
+
+
+                                ///////// THUMBNAIL VIEW
                                 this.props.videoList.map((video, idx) => {
                                     return (
                                         <div key={idx} className='video-div'>
@@ -44,7 +46,7 @@ class Videos extends Component {
                                                         </div>
                                                     </div>
                                                     <p>
-                                                        {video.snippet.description}
+                                                        {video.snippet.description.substring(0, 60) + `...`}
                                                     </p>
                                                 </div>
                                                 :
@@ -54,7 +56,10 @@ class Videos extends Component {
                                     );
                                 })
                             ) : (
-                                    // LIST VIEW
+
+
+
+                                    /////////// LIST VIEW
                                     this.props.videoList.map((video, idx) => {
                                         return (
                                             <div key={idx} class='list-view-video'>
@@ -65,7 +70,7 @@ class Videos extends Component {
                                                                 <p></p>
                                                                 <h6 onClick={() => (this.props.handlePlayVideo(video.contentDetails.upload.videoId))}><i className="fab fa-youtube video-list-red"> </i> {video.snippet.title}</h6>
                                                                 <p onClick={() => (this.props.handlePlayVideo(video.contentDetails.upload.videoId))}>
-                                                                    {video.snippet.description}
+                                                                    {video.snippet.description.substring(0, 60) + `...`}
                                                                 </p>
                                                             </ListGroupItem>
                                                         </ListGroup>
