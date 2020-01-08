@@ -1,6 +1,3 @@
-// import tokenService from './tokenService';
-
-
 // Get list of channel videos from Youtube API
 async function getChannelVideos() {
     console.log('getChannelVideos called in videoService');
@@ -14,8 +11,6 @@ async function getChannelVideos() {
     console.log('approaching fetch in videoService');
     return fetch(`/api/videos`, options).then(res => res.json());
 }
-
-
 
 // Get a single video's information based on videoId
 async function getVideo(videoId) {
@@ -31,20 +26,7 @@ async function getVideo(videoId) {
         .then(res => res.json());
 }
 
-
-// Get array of videos back from DB
-// function getVideosList() {
-//     console.log('getVideosList in videoService called');
-//     const options = {
-//         method: 'GET',
-//         headers: { 'Authorization': 'Bearer ' + tokenService.getToken() }
-//     };
-//     return fetch(`/api/videos/`, options)
-//         .then(res => res.json());
-// }
-
 export default {
     getVideo,
-    // getVideosList,
     getChannelVideos,
 }

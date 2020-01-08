@@ -1,23 +1,17 @@
-
 const express = require('express');
 const router = express.Router();
+// const serverless = require('serverless-http');
+// const bodyParser = require('body-parser');
+// const app = express();
 const videosCtrl = require('../../controllers/videos');
-
-//      P R O T E C T E D    R O U T E S 
 
 router.use(require('../../config/auth'));
 router.post('/', videosCtrl.getChannelVideos);
 router.post('/', videosCtrl.getVideo);
-// router.post('/video', videosCtrl.video);
-// router.post('/search', checkAuth,  videosCtrl.search);
 
-
-//      H E L P E R    F U N C T I O N S
-
-// function checkAuth(req, res, next) {
-//     if (req.user) return next();
-//     return res.status(401).json({ msg: 'Not Authorized' });
-// }
-
+// app.use(bodyParser.json());
+// app.use('/.netlify/functions/server', router); //path must route to lambda
 
 module.exports = router;
+// module.exports = app;
+// module.exports.handler = serverless(app);

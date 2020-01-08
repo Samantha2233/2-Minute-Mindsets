@@ -4,7 +4,7 @@ const favicon = require('serve-favicon');
 const logger = require('morgan');
 const app = express();
 
-// const bodyParser = require('body-parser');
+const bodyParser = require('body-parser');
 const serverless = require('serverless-http');
 const router = express.Router();
 
@@ -18,8 +18,7 @@ app.use(express.json());
 app.use(favicon(path.join(__dirname, 'build', 'favicon.ico')));
 app.use(express.static(path.join(__dirname, 'build')));
 
-// app.use(bodyParser.json());
-app.use('/.netlify/functions/server', router); //path must route to lambda
+
 
 //    A P I   R O U T E S  
 // Keep above catch all!
@@ -27,6 +26,8 @@ app.use('/api/users', require('./routes/api/users'));
 app.use('/api/videos', require('./routes/api/videos'));
 app.use('/api/subscriptions', require('./routes/api/subscriptions'));
 
+app.use(bodyParser.json());
+app.use('/.netlify/functions/server', router); //path must route to lambda
 
 //    C A T C H   A L L 
 // for a SPA's client-side routing to properly work
