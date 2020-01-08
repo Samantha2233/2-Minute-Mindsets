@@ -9,6 +9,7 @@ class Videos extends Component {
                 <div id='video-panel'>
                     <div className='videos-hdr'>
                         <h3 className='h3'>Latest Videos</h3>
+                        <p>TEST</p>
                         <ButtonDropdown
                             isOpen={this.props.viewDropdownOpen}
                             toggle={this.props.toggleViewDropdown}
@@ -48,7 +49,6 @@ class Videos extends Component {
                                                     <p>
                                                         {video.snippet.description.substring(0, 60) + `...`}
                                                     </p>
-                                                    <p>TEST</p>
                                                 </div>
                                                 :
                                                 <div id='nothing'></div>
