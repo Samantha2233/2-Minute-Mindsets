@@ -16,6 +16,7 @@ const About = () => {
                 <h3 className="h3">What does it take?</h3>
                 <p> Watch the videos. Use the ideas in your life.
                     Naturally build the habit of living better.</p>
+                <p>TEST</p>
             </div>
         </div>
     )
