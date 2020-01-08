@@ -43,4 +43,12 @@ app.listen(PORT, function () {
 });
 
 module.exports = app;
-module.exports.handler = serverless(app);
+// module.exports.handler = serverless(app);
+exports.handler = function (event, context, callback) {
+    console.log("EVENT: \n" + JSON.stringify(event))
+    callback(null, {
+        statusCode: 200,
+        body: "Helloooo?"
+    });
+    return context.logStreamName;
+}
