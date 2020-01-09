@@ -1,7 +1,6 @@
 // Get list of channel videos from Youtube API
 async function getChannelVideos() {
     console.log('getChannelVideos called in videoService');
-
     const options = {
         method: 'POST',
         headers: {

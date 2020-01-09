@@ -4,9 +4,9 @@ const favicon = require('serve-favicon');
 const logger = require('morgan');
 const app = express();
 
-const bodyParser = require('body-parser');
-const serverless = require('serverless-http');
-const router = express.Router();
+// const bodyParser = require('body-parser');
+// const serverless = require('serverless-http');
+// const router = express.Router();
 
 //     D A T A B A S E
 require('dotenv').config();
@@ -18,23 +18,20 @@ app.use(express.json());
 app.use(favicon(path.join(__dirname, 'build', 'favicon.ico')));
 app.use(express.static(path.join(__dirname, 'build')));
 
-
-
 //    A P I   R O U T E S  
 // Keep above catch all!
 app.use('/api/users', require('./routes/api/users'));
 app.use('/api/videos', require('./routes/api/videos'));
 app.use('/api/subscriptions', require('./routes/api/subscriptions'));
 
-app.use(bodyParser.json());
-app.use('/.netlify/functions/server', router); //path must route to lambda
+// app.use(bodyParser.json());
+// app.use('/.netlify/functions/serve', router); //path must route to lambda
 
 //    C A T C H   A L L 
 // for a SPA's client-side routing to properly work
 app.get('/*', function (req, res) {
     res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
-
 
 //    S T A R T   S E R V E R
 const PORT = process.env.PORT || 3001;
@@ -44,11 +41,12 @@ app.listen(PORT, function () {
 
 module.exports = app;
 // module.exports.handler = serverless(app);
-exports.handler = function (event, context, callback) {
+
+/*exports.handler = function (event, context, callback) {
     console.log("EVENT: \n" + JSON.stringify(event))
     callback(null, {
         statusCode: 200,
         body: "Helloooo?"
     });
     return context.logStreamName;
-}
+}*/
