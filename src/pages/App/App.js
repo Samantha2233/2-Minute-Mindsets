@@ -40,6 +40,19 @@ class App extends Component {
       videoList: [],
       videoId: '',
       emails: [],
+      sublinerQuote: 'The trajectory of your life depends on your mindset.',
+      sublinerNumber: 0,
+      sublinerQuotes: [
+        'Life is short.  No regrets.',
+        'Better mindset = Better results',
+        'Don\'t "Just do it". Do "The right things".',
+        'Where you end up depends on entirely on your thoughts.',
+        'Life doesn\'t have to be difficult.',
+        'Your mindset is a small thing that makes a huge difference.',
+        'Nearly everything you need just needs to be reminded',
+        'Simple habits lead to extraordinary results.',
+        'Life = Thoughts'
+      ],
       videoPlayerIsOpen: false,
       signUpModalIsOpen: false,
       logInModalIsOpen: false,
@@ -112,6 +125,25 @@ class App extends Component {
 
 
 
+  //     S U B L I N E R   Q U O T E S 
+  //  Loop through quotes in state
+  subLinerTimer = () => {
+    return new Promise(resolve => {
+      setTimeout(() => {
+        resolve(
+          this.state.sublinerNumber > 8 ? this.setState({ sublinerNumber: 0 }) :
+            this.setState({
+              sublinerNumber: this.state.sublinerNumber + 1,
+              sublinerQuote: this.state.sublinerQuotes[this.state.sublinerNumber]
+            }));
+      }, 5000)
+    });
+  }
+
+  loopSublinerQuotes = async () => {
+    await this.subLinerTimer();
+  }
+
 
 
 
@@ -119,12 +151,10 @@ class App extends Component {
   //  List latest channel videos from Youtube API onto home page
   listVideos = async () => {
     let videoList = await videoService.getChannelVideos();
-    console.log('videoList1', videoList);
     // Filter out Dale Carnegie Principle Videos
     let filteredVideoList = videoList.items.filter(video => {
       return !video.snippet.title.includes('Principle')
     });
-    console.log('videoList2', filteredVideoList);
     this.setState({
       videoList: filteredVideoList
     });
@@ -223,7 +253,11 @@ class App extends Component {
           logInModalIsOpen={this.state.logInModalIsOpen}
           handleSignUpOrLogIn={this.handleSignUpOrLogIn}
         />
-        <Landing />
+        <Landing
+          sublinerQuote={this.state.sublinerQuote}
+          sublinerQuotes={this.state.sublinerQuotes}
+          loopSublinerQuotes={this.loopSublinerQuotes}
+        />
         <FeatureVideo
           videoList={this.state.videoList}
           handlePlayVideo={this.handlePlayVideo}
