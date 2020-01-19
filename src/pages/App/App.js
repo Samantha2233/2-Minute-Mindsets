@@ -141,6 +141,7 @@ class App extends Component {
   }
 
   loopSublinerQuotes = async () => {
+    console.log(this.state.sublinerNumber);
     await this.subLinerTimer();
   }
 
