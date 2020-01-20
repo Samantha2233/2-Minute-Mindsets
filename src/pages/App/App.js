@@ -126,7 +126,7 @@ class App extends Component {
 
 
   //     S U B L I N E R   Q U O T E S 
-  //  Loop through quotes in state
+  //  Loop through quotes in state every 5 seconds
   subLinerTimer = () => {
     return new Promise(resolve => {
       setTimeout(() => {
@@ -136,7 +136,7 @@ class App extends Component {
               sublinerNumber: this.state.sublinerNumber + 1,
               sublinerQuote: this.state.sublinerQuotes[this.state.sublinerNumber]
             }));
-      }, 5000)
+      }, 3000)
     });
   }
 

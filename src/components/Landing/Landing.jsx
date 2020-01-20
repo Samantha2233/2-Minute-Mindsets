@@ -5,7 +5,7 @@ import './Landing.scss';
 
 
 const Landing = (props) => {
-    const animation = useSpring({ opacity: 1, delay: 1300, from: { opacity: 0 } });
+    const animation = useSpring({ opacity: 1, delay: 1000, marginTop: '0px', from: { opacity: 0, marginTop:'20px' } });
     props.loopSublinerQuotes();
 
     return (
