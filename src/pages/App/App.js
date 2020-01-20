@@ -136,7 +136,7 @@ class App extends Component {
               sublinerNumber: this.state.sublinerNumber + 1,
               sublinerQuote: this.state.sublinerQuotes[this.state.sublinerNumber]
             }));
-      }, 3000)
+      }, 4000)
     });
   }
 
