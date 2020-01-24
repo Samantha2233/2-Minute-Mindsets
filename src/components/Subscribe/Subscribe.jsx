@@ -57,6 +57,7 @@ class Subscribe extends Component {
                                     placeholder='email'
                                     required
                                 />
+                                <p>& of course, we promise to never sell your information.</p>
                             </FormGroup>
                             <Button
                                 type='submit'
@@ -66,7 +67,7 @@ class Subscribe extends Component {
                     </div>
                     <img id='blue-flower' src='../../../images/blue-flower.jpeg' alt='Vladimir Malyutin on Unsplash' />
                 </div>
-            </div>
+            </div >
         )
     }
 }
