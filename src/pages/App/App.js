@@ -44,14 +44,14 @@ class App extends Component {
       sublinerNumber: 0,
       sublinerQuotes: [
         'Life is short.  No regrets.',
-        'Better mindset = Better results',
+        'Better mindset = Better results.',
         'Don\'t "Just do it". Do "The right things".',
         'Where you end up depends on entirely on your thoughts.',
         'Life doesn\'t have to be difficult.',
         'Your mindset is a small thing that makes a huge difference.',
-        'Nearly everything you need just needs to be reminded',
+        'Nearly everything you need just needs to be reminded.',
         'Simple habits lead to extraordinary results.',
-        'Life = Thoughts'
+        'Life = Thoughts.'
       ],
       videoPlayerIsOpen: false,
       signUpModalIsOpen: false,
@@ -136,7 +136,7 @@ class App extends Component {
               sublinerNumber: this.state.sublinerNumber + 1,
               sublinerQuote: this.state.sublinerQuotes[this.state.sublinerNumber]
             }));
-      }, 4000)
+      }, 5000)
     });
   }
 
