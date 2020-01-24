@@ -61,16 +61,18 @@
 }
 
 #button-exit {
-    height: 0px;
+    // height: 0px;
+    // border: 0;
+    // margin: 0;
+    // padding: 0;
+    background-color: transparent;
     border: 0;
-    margin: 0;
-    padding: 0;
+    &:focus {
+        border: 0;
+    }
 }
 
 #exit-video-player {
     width: 22px;
-    position: absolute;
-    right: 20px;
-    top: -30px;
-    color: white;
+    float: right;
 }

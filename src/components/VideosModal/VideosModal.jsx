@@ -11,15 +11,15 @@ class VideosModal extends Component {
           isOpen={this.props.videosModalIsOpen}
           id='videos-modal'
         >
-          <div className='videos-modal-hdr'>
-            <h3>More Videos</h3>
-          </div>
           <Button
             onClick={this.props.toggleVideosModal}
             isOpen={this.props.videosModalIsOpen}
             id='button-exit'>
             <img id="exit-video-player" src='../../../images/Exit-icon-purple.png' alt='exit icon' />
           </Button>
+          <div className='videos-modal-hdr'>
+            <h3>More Videos</h3>
+          </div>
           <div className='videos-box'>
             {this.props.videoList ? (
               this.props.viewThumbnail ? (

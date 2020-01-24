@@ -26,11 +26,10 @@
   .modal-content {
     top: 80px !important;
     padding: 10px 0 100px 0;
+    position: static;
   }
   .videos-modal-hdr {
     display: flex;
-    position: absolute;
-    top: -40px;
   }
   .videos-box {
     display: flex;
@@ -39,6 +38,10 @@
 }
 
 @media screen and (max-width: 525px) {
+  .videos-hdr h3 {
+    margin-left: 10px;
+    margin-right: 0px;
+  }
   #videos-modal {
     h3 {
       margin-left: 10px;
