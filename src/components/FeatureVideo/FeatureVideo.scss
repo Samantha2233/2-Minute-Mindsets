@@ -1,7 +1,6 @@
 .feature-box {
     width: 600px;
     height: 343px;
-    background-color: black;
     position: absolute;
     left: 5%;
     top: 230px;
@@ -11,19 +10,14 @@
 .overlay {
     width: 100%;
     height: 100%;
-    background-color: black; // opacity: ;
     position: absolute;
     top: 0;
-    border: 5px solid black;
 }
 
 @media screen and (max-width: 650px) {
     .overlay {
         background-color: transparent;
         border: 0;
-    }
-    .feature-box {
-        background-color: transparent;
     }
 }
 
@@ -62,6 +56,7 @@
 
 #feature-img {
     width: 100%;
+    border: 5px solid black;
 }
 
 #feature-content-box {
