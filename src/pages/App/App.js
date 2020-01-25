@@ -128,23 +128,18 @@ class App extends Component {
   //     S U B L I N E R   Q U O T E S 
   //  Loop through quotes in state every 5 seconds
   subLinerTimer = () => {
-    return new Promise(resolve => {
-      setTimeout(() => {
-        resolve(
-          this.state.sublinerNumber > 8 ? this.setState({ sublinerNumber: 0 }) :
-            this.setState({
-              sublinerNumber: this.state.sublinerNumber + 1,
-              sublinerQuote: this.state.sublinerQuotes[this.state.sublinerNumber]
-            }));
-      }, 5000)
+    let timer = new Promise(resolve => {
+      setTimeout(() => resolve(), 5000);
     });
+    timer.then(() => {
+      this.state.sublinerNumber > 8
+        ? this.setState({ sublinerNumber: 0 })
+        : this.setState({
+          sublinerNumber: this.state.sublinerNumber + 1,
+          sublinerQuote: this.state.sublinerQuotes[this.state.sublinerNumber]
+        });
+    })
   }
-
-  loopSublinerQuotes = async () => {
-    console.log(this.state.sublinerNumber);
-    await this.subLinerTimer();
-  }
-
 
 
 
@@ -217,6 +212,7 @@ class App extends Component {
 
 
   render() {
+    this.subLinerTimer();
     return (
       <div>
         <Nav
@@ -258,6 +254,7 @@ class App extends Component {
           sublinerQuote={this.state.sublinerQuote}
           sublinerQuotes={this.state.sublinerQuotes}
           loopSublinerQuotes={this.loopSublinerQuotes}
+          subLinerTimer={this.subLinerTimer}
         />
         <FeatureVideo
           videoList={this.state.videoList}
