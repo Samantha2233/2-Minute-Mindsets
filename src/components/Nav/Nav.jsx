@@ -12,13 +12,7 @@ class Nav extends Component {
                     </a>
                     <ul>
                         <li><a href="#about">About</a></li>
-                        <Dropdown isOpen={this.props.dropdownOpen} toggle={this.props.toggleNavItem}>
-                            <DropdownToggle id='resources'>Resources</DropdownToggle>
-                            <DropdownMenu>
-                                <DropdownItem><a href='#video-section'>Videos</a></DropdownItem>
-                                {/*<DropdownItem>Transcriptions</DropdownItem>*/}
-                            </DropdownMenu>
-                        </Dropdown>
+                        <li><a href='#video-section'>Videos</a></li>
                         <li><a href='#subscribe'>Subscribe</a></li>
 
                     </ul>
