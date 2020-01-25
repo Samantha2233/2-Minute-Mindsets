@@ -130,11 +130,10 @@ class App extends Component {
   subLinerTimer = () => {
     let timer = new Promise(resolve => {
       setTimeout(() => resolve(), 5000);
-    });
+    })
     timer.then(() => {
-      this.state.sublinerNumber > 8
-        ? this.setState({ sublinerNumber: 0 })
-        : this.setState({
+      this.state.sublinerNumber > 8 ? this.setState({ sublinerNumber: 0 }) :
+        this.setState({
           sublinerNumber: this.state.sublinerNumber + 1,
           sublinerQuote: this.state.sublinerQuotes[this.state.sublinerNumber]
         });
@@ -212,7 +211,6 @@ class App extends Component {
 
 
   render() {
-    this.subLinerTimer();
     return (
       <div>
         <Nav
